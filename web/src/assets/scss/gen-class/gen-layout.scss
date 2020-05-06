@@ -1,0 +1,80 @@
+@import '../variable/variable-layout.scss';
+@import '../variable//variable-size.scss';
+@import '../base/base.scss';
+
+// text-align
+@each $direction in (left, center, right) {
+  .text-#{ $direction } {
+    text-align: $direction;
+  }
+}
+
+// vertical-align
+@each $value in $vertical-align {
+  .va-#{ $value } {
+    vertical-align: $value;
+  }
+}
+
+// display
+@each $value in $display {
+  .d-#{ $value } {
+    display: $value;
+  }
+}
+
+// justify-content
+@each $key, $value in $jc-content {
+  .jc-#{ $key } {
+    justify-content: $value;
+  }
+}
+
+// align-content
+@each $key, $value in $ai-content {
+  .ai-#{ $key } {
+    align-content: $value;
+  }
+}
+
+// align-items
+@each $key, $value in $ai-items {
+  .ai-#{ $key } {
+    align-items: $value;
+  }
+}
+
+// padding margin
+@each $typeKey, $typeValue in $spacing-type {
+  @each $directionKey, $directionValue in $spacing-direction {
+    @each $sizeValue in $spacing-size {
+      .#{ $typeKey }#{ $directionKey }-#{ $sizeValue } {
+        #{ $typeValue }-#{ $directionValue }: $sizeValue * $spacing-base;
+      }
+    }
+  }
+
+  @each $sizeValue in $spacing-size {
+    .#{ $typeKey }x-#{ $sizeValue } {
+      #{ $typeValue }-left: $sizeValue * $spacing-base;
+      #{ $typeValue }-right: $sizeValue * $spacing-base;
+    }
+    .#{ $typeKey }y-#{ $sizeValue } {
+      #{ $typeValue }-top: $sizeValue * $spacing-base;
+      #{ $typeValue }-bottom: $sizeValue * $spacing-base;
+    }
+  }
+
+  @each $sizeValue in $spacing-size {
+    .#{ $typeKey }-#{ $sizeValue } {
+      #{ $typeValue }: $sizeValue * $spacing-base;
+    }
+  }
+}
+
+// font-size
+@each $size in $text-size {
+  .text-#{ $size } {
+    font-size: $size * $text-base;
+  }
+}

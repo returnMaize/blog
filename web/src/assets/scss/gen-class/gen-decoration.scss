@@ -1,0 +1,34 @@
+@import '../variable/variable-size.scss';
+@import '../variable/variable-color.scss';
+@import '../variable/variable-decoration.scss';
+@import '../base/base.scss';
+
+// border
+@each $size in $border-size {
+  @each $colorKey, $colorValue in $border-color {
+    .border-#{ $colorKey }-#{ $size } {
+      border: $size * $border-base solid $colorValue;
+    }
+  }
+}
+
+// border-radius
+@each $size in $border-radius-size {
+  .border-radius-#{ $size } {
+    border-radius: $size * $border-radius-base;
+  }
+}
+
+// cursor
+@each $value in $cursor {
+  .cursor-#{ $value } {
+    cursor: $value;
+  }
+}
+
+// text-decoration
+@each $key, $value in $text-decoration {
+  .text-decoration-#{ $key } {
+    text-decoration: $value;
+  }
+}

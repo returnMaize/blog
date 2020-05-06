@@ -1,0 +1,43 @@
+// vertical-align
+$vertical-align: (baseline, top, middle, bottom);
+
+// display
+$display: (inline, block, inline-block, flex);
+
+// justify-content
+$jc-content: (
+  start: flex-start,
+  center: center,
+  end: flex-end,
+  between: space-between,
+  around: space-around,
+);
+
+// ai-content
+$ai-content: (
+  start: flex-start,
+  center: center,
+  end: flex-end,
+  between: space-between,
+  around: space-around,
+);
+
+// ai-items
+$ai-items: (
+  start: flex-start,
+  center: center,
+  end: flex-end,
+  baseline: baseline,
+);
+
+// padding margin
+$spacing-type: (
+  p: padding,
+  m: margin,
+);
+$spacing-direction: (
+  l: left,
+  t: top,
+  r: right,
+  b: bottom,
+);
