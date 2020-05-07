@@ -6,7 +6,7 @@
         <el-aside>
           <el-menu router
             style="height:100%"
-            :default-openeds="['author', 'category', 'bg', 'music']"
+            :default-openeds="['author', 'category', 'bg', 'music', 'blog']"
             :default-active="$route.path">
             <el-submenu index="author">
               <template slot="title">作者管理</template>
@@ -15,7 +15,7 @@
             </el-submenu>
 
             <el-submenu index="category">
-              <template slot="title">分类管理</template>
+              <template slot="title">导航分类管理</template>
               <el-menu-item index="/category/create">创建分类</el-menu-item>
               <el-menu-item index="/category/list">分类列表</el-menu-item>
             </el-submenu>
@@ -30,6 +30,12 @@
               <template slot="title">音乐管理</template>
               <el-menu-item index="/music/add">添加音乐</el-menu-item>
               <el-menu-item index="/music/list">音乐列表</el-menu-item>
+            </el-submenu>
+
+            <el-submenu index="blog">
+              <template slot="title">博客管理</template>
+              <el-menu-item index="/blog/add">添加博客</el-menu-item>
+              <el-menu-item index="/blog/list">博客列表</el-menu-item>
             </el-submenu>
           </el-menu>
         </el-aside>

@@ -48,6 +48,15 @@
   }
 }
 
+// flex-grow flex-shrink
+@each $type in $flex-scale-type {
+  @each $size in $flex-scale-size {
+    .flex-#{ $type }-#{ $size } {
+      flex-#{ $type }: $size;
+    }
+  }
+}
+
 // padding margin
 @each $typeKey, $typeValue in $spacing-type {
   @each $directionKey, $directionValue in $spacing-direction {
@@ -72,6 +81,22 @@
   @each $sizeValue in $spacing-size {
     .#{ $typeKey }-#{ $sizeValue } {
       #{ $typeValue }: $sizeValue * $spacing-base;
+    }
+  }
+}
+
+// position
+@each $value in $position-value {
+  .pos-#{ $value } {
+    position: $value;
+  }
+}
+
+// position top left right bottom
+@each $key, $value in $spacing-direction {
+  @each $size in $spacing-size {
+    .#{ $key }-#{ $size } {
+      #{ $value }: $size * $spacing-base;
     }
   }
 }

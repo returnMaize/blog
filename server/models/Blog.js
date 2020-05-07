@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const Category = require('./Category')
 
 const schema = new mongoose.Schema({
   category: {
@@ -7,9 +8,6 @@ const schema = new mongoose.Schema({
   },
   title: String,
   content: String,
-  comment: String,
-  views: Number,
-  star: Number,
 })
 
 module.exports = mongoose.model('Blog', schema)

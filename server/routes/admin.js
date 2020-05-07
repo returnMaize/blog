@@ -11,7 +11,14 @@ module.exports = (app) => {
 
   // 获取列表 查
   router.get('/', async (req, res) => {
-    const result = await req.model.find()
+    let result
+    if (req.model.modelName === 'Category') {
+      result = await req.model.find().populate('parent')
+    } else if (req.model.modelName === 'Blog') {
+      result = await req.model.find().populate('category')
+    } else {
+      result = await req.model.find()
+    }
     res.send(result)
   })
 

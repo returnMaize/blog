@@ -6,7 +6,8 @@
           :offset="4"
           style="height: 60px"
           class="d-flex ai-center jc-between">
-          <div class="author d-flex ai-center">
+          <div class="author d-flex ai-center cursor-pointer noselect"
+            @click="$router.push('/')">
             <img :src="author.avatar"
               width="40"
               class="border-radius-4" />
@@ -68,17 +69,7 @@
       </el-row>
     </el-header>
 
-    <div class="banner"
-      :style="{ 'background-image': `url(${bg})` }">
-      <el-row>
-        <el-col :span="16"
-          :offset="4">
-          <div class="title text-default text-20 pt-30">
-            欢迎来到 {{ author.name }} 的博客
-          </div>
-        </el-col>
-      </el-row>
-    </div>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -87,7 +78,6 @@ export default {
   data() {
     return {
       author: {},
-      bg: "",
       songList: [],
       currentSongIndex: 0,
       isPlay: false,
@@ -111,7 +101,6 @@ export default {
   },
   created() {
     this.fetchAuthor();
-    this.fetchBg();
     this.fetchSong();
   },
   methods: {
@@ -119,12 +108,6 @@ export default {
       const res = await this.$http.get("/authors");
       if (res.status === 200) {
         this.author = res.data[0];
-      }
-    },
-    async fetchBg() {
-      const res = await this.$http.get("/bgs");
-      if (res.status === 200) {
-        this.bg = res.data[0].imgUrl;
       }
     },
     async fetchSong() {
@@ -169,11 +152,6 @@ export default {
 </script>
 
 <style scoped>
-.banner {
-  height: 400px;
-  background-position: center;
-  background-size: cover;
-}
 @keyframes imgrotate {
   from {
     transform: rotate(0);

@@ -30,6 +30,10 @@ $ai-items: (
   baseline: baseline,
 );
 
+// flex-grow flex-shink
+$flex-scale-type: (grow, shrink);
+$flex-scale-size: (0, 1, 2, 3, 4, 5);
+
 // padding margin
 $spacing-type: (
   p: padding,
@@ -41,3 +45,6 @@ $spacing-direction: (
   r: right,
   b: bottom,
 );
+
+// position
+$position-value: (relative, absolute, fixed);
