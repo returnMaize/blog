@@ -7,7 +7,7 @@ import './plugins/element.js'
 import './assets/scss/reset.css'
 import './assets/scss/index.scss'
 
-import http from './api/http'
+import { http } from './api/http'
 
 Vue.prototype.$http = http
 

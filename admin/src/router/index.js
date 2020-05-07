@@ -8,6 +8,8 @@ import AuthorCreate from '@/views/author/AuthorCreate'
 import AuthorList from '@/views/author/AuthorList'
 import BgAdd from '@/views/bg/BgAdd'
 import BgList from '@/views/bg/BgList'
+import MusicAdd from '@/views/music/MusicAdd'
+import MusicList from '@/views/music/MusicList'
 
 Vue.use(VueRouter)
 
@@ -25,6 +27,9 @@ const routes = [
       { path: 'bg/add', component: BgAdd },
       { path: 'bg/edit/:id', component: BgAdd, props: true },
       { path: 'bg/list', component: BgList },
+      { path: 'music/add', component: MusicAdd },
+      { path: 'music/edit/:id', component: MusicAdd, props: true },
+      { path: 'music/list', component: MusicList },
     ],
   },
 ]

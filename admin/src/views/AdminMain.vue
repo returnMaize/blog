@@ -4,12 +4,10 @@
       <el-container>
         <!-- aside -->
         <el-aside>
-          <el-menu
-            router
+          <el-menu router
             style="height:100%"
-            :default-openeds="['author', 'category', 'bg']"
-            :default-active="$route.path"
-          >
+            :default-openeds="['author', 'category', 'bg', 'music']"
+            :default-active="$route.path">
             <el-submenu index="author">
               <template slot="title">作者管理</template>
               <el-menu-item index="/author/create">创建作者</el-menu-item>
@@ -27,13 +25,21 @@
               <el-menu-item index="/bg/add">添加背景图片</el-menu-item>
               <el-menu-item index="/bg/list">背景图片列表</el-menu-item>
             </el-submenu>
+
+            <el-submenu index="music">
+              <template slot="title">音乐管理</template>
+              <el-menu-item index="/music/add">添加音乐</el-menu-item>
+              <el-menu-item index="/music/list">音乐列表</el-menu-item>
+            </el-submenu>
           </el-menu>
         </el-aside>
         <!-- aside end -->
 
         <!-- main -->
         <el-main>
-          <router-view></router-view>
+          <keep-alive :include="['music-search', 'music-add']">
+            <router-view></router-view>
+          </keep-alive>
         </el-main>
         <!-- main end -->
       </el-container>
@@ -42,7 +48,7 @@
 </template>
 
 <script>
-export default {}
+export default {};
 </script>
 
 <style scoped>

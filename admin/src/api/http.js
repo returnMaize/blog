@@ -4,4 +4,8 @@ const http = axios.create({
   baseURL: 'http://localhost:3000/admin/api',
 })
 
-export default http
+const musicHttp = axios.create({
+  baseURL: '/musicsearch',
+})
+
+export { http, musicHttp }

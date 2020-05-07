@@ -32,9 +32,13 @@
 
 // align-content
 @each $key, $value in $ai-content {
-  .ai-#{ $key } {
+  .ac-#{ $key } {
     align-content: $value;
   }
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
 }
 
 // align-items
