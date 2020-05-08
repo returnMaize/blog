@@ -7,7 +7,9 @@ const schema = new mongoose.Schema({
     ref: 'Category',
   },
   title: String,
+  introduction: String,
   content: String,
+  imgUrl: String,
 })
 
 module.exports = mongoose.model('Blog', schema)

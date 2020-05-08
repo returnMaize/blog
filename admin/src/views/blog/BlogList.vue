@@ -7,6 +7,11 @@
         prop="category.name"
       ></el-table-column>
       <el-table-column label="博客标题" prop="title"></el-table-column>
+      <el-table-column label="博客图片">
+        <template slot-scope="scope">
+          <img :src="scope.row.imgUrl" width="50" />
+        </template>
+      </el-table-column>
       <el-table-column label="操作">
         <template slot-scope="scope">
           <el-link

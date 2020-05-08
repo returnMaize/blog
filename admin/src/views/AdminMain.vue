@@ -4,10 +4,12 @@
       <el-container>
         <!-- aside -->
         <el-aside>
-          <el-menu router
+          <el-menu
+            router
             style="height:100%"
             :default-openeds="['author', 'category', 'bg', 'music', 'blog']"
-            :default-active="$route.path">
+            :default-active="$route.path"
+          >
             <el-submenu index="author">
               <template slot="title">作者管理</template>
               <el-menu-item index="/author/create">创建作者</el-menu-item>
@@ -43,9 +45,7 @@
 
         <!-- main -->
         <el-main>
-          <keep-alive :include="['music-search', 'music-add']">
-            <router-view></router-view>
-          </keep-alive>
+          <router-view></router-view>
         </el-main>
         <!-- main end -->
       </el-container>
@@ -54,7 +54,7 @@
 </template>
 
 <script>
-export default {};
+export default {}
 </script>
 
 <style scoped>
