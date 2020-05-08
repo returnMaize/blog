@@ -19,8 +19,8 @@ const routes = [
         path: '',
         component: WebHome,
         children: [
-          { path: '', component: HomeBlog, props: true },
-          { path: 'blog', component: HomeBlog, props: true },
+          { path: '', component: HomeBlog },
+          { path: 'blog/:id', component: HomeBlog, props: true },
           { path: 'picture', component: HomePicture },
           { path: 'message/board', component: HomeMessageBoard },
           { path: 'about/me', component: HomeAboutMe },

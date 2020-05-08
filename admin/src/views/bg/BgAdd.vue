@@ -1,20 +1,23 @@
 <template>
   <div class="bg-add">
     <h3>{{ genTitle }}</h3>
-    <el-form class="pt-30" label-width="100px">
+    <el-form class="pt-30"
+      label-width="100px">
       <el-form-item label="图片上传">
-        <el-upload
-          class="avatar-uploader"
+        <el-upload class="avatar-uploader"
           action="http://localhost:3000/admin/upload"
           :show-file-list="false"
-          :on-success="uploadSuccess"
-        >
-          <img v-if="formData.imgUrl" :src="formData.imgUrl" class="avatar" />
-          <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+          :on-success="uploadSuccess">
+          <img v-if="formData.imgUrl"
+            :src="formData.imgUrl"
+            class="avatar" />
+          <i v-else
+            class="el-icon-plus avatar-uploader-icon"></i>
         </el-upload>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="submitForm">{{
+        <el-button type="primary"
+          @click="submitForm">{{
           genButtonText
         }}</el-button>
       </el-form-item>
@@ -27,57 +30,57 @@ export default {
   props: {
     id: {
       type: String,
-      default: '',
-    },
+      default: ""
+    }
   },
 
   data() {
     return {
-      formData: {},
-    }
+      formData: {}
+    };
   },
 
   computed: {
     genTitle() {
-      return this.id ? '编辑背景图片' : '添加背景图片'
+      return this.id ? "编辑背景图片" : "添加背景图片";
     },
     genButtonText() {
-      return this.id ? '编辑' : '创建'
-    },
+      return this.id ? "编辑" : "创建";
+    }
   },
   created() {
-    this.fetchEditFormData()
+    this.id && this.fetchEditFormData();
   },
 
   methods: {
     uploadSuccess(res) {
-      this.$set(this.formData, 'imgUrl', res.url)
+      this.$set(this.formData, "imgUrl", res.url);
     },
     submitForm() {
-      this.id ? this.bgEdit() : this.bgAdd()
+      this.id ? this.bgEdit() : this.bgAdd();
     },
     async bgEdit() {
-      const res = await this.$http.put(`/bgs/${this.id}`, this.formData)
+      const res = await this.$http.put(`/bgs/${this.id}`, this.formData);
       if (res.status === 200) {
-        this.$router.push('/bg/list')
-        this.$message.success('编辑图片成功')
+        this.$router.push("/bg/list");
+        this.$message.success("编辑图片成功");
       }
     },
     async bgAdd() {
-      const res = await this.$http.post('/bgs', this.formData)
+      const res = await this.$http.post("/bgs", this.formData);
       if (res.status === 200) {
-        this.$router.push('/bg/list')
-        this.$message.success('图片添加成功')
+        this.$router.push("/bg/list");
+        this.$message.success("图片添加成功");
       }
     },
     async fetchEditFormData() {
-      const res = await this.$http.get(`/bgs/${this.id}`)
+      const res = await this.$http.get(`/bgs/${this.id}`);
       if (res.status === 200) {
-        this.formData = res.data
+        this.formData = res.data;
       }
-    },
-  },
-}
+    }
+  }
+};
 </script>
 
 <style scoped>
