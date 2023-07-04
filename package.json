@@ -1,0 +1,28 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "hjx's blog",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "preinstall": "npx only-allow pnpm",
+    "prepare": "husky install",
+    "clean": "rm -rf node_modules",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "engines": {
+    "node": ">=14.18.3"
+  },
+  "keywords": [
+    "blog"
+  ],
+  "author": "hjx@huangjunxian",
+  "license": "ISC",
+  "devDependencies": {
+    "@commitlint/cli": "^17.6.6",
+    "@commitlint/config-conventional": "^17.6.6",
+    "husky": "^8.0.3",
+    "prettier": "2.8.8",
+    "vuepress": "^1.9.9"
+  }
+}
