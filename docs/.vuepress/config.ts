@@ -10,33 +10,37 @@ export default defineConfig4CustomTheme({
   },
   base: '/blog/',
   themeConfig: {
-    sidebar: [
-      {
-        title: 'JS基础篇',
-        children: [
-          {
-            title: '事件循环',
-            path: '/basics/event-loop.md',
-          },
-        ],
-      },
+    name: [{ text: '首页', link: '/index.md' }],
 
-      {
-        title: 'Vue篇',
-        children: [
-          {
-            title: '从模版到视图原理（2.x）',
-            path: '/vue/template-to-dom-2.x.md',
-          },
-        ],
-      },
+    sidebar: [
+      // {
+      //   title: 'JS基础篇',
+      //   children: [
+      //     {
+      //       title: '事件循环',
+      //       path: '/basics/event-loop.md',
+      //     },
+      //   ],
+      // },
+
+      // {
+      //   title: 'Vue篇',
+      //   children: [
+      //     {
+      //       title: '从模版到视图原理（2.x）',
+      //       path: '/vue/template-to-dom-2.x.md',
+      //     },
+      //   ],
+      // },
 
       {
         title: '工程化篇',
         children: [
           {
             title: 'eslint',
-            path: '/engineering/eslint.md',
+            children: [
+              { title: 'eslint基础知识', path: '/engineering/eslint.md' },
+            ],
           },
         ],
       },
