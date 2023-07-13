@@ -23,6 +23,7 @@ npm init @eslint/config
 ```
 
 这里你可能对 `npm init` 这个命令有些疑惑，如果想要了解更多关于 `npm init` 相关内容，可以阅读 [npm Docs](https://docs.npmjs.com/cli/v6/commands/npm-init)
+
 对于 `npm init @eslint/config`，你可以直接理解成 npm 会给我们执行 `npx @eslint/create-config`。
 
 #### 手动安装
@@ -86,7 +87,7 @@ npx eslint <filepath>
 
 ### 扩展配置
 
-针对不同项目的 `eslint` 配置，我们不可能每次都需要自己配置。因为它们大多情况下都是相同的，这时我们便便可以通过 `eslint` 提供的 `extends` 配置项来扩展我们的配置。它会继承我们指定的好的所有配置（规则、插件和语言选项）。
+针对不同项目的 `eslint` 配置，我们不可能每次都需要自己配置。因为它们大多情况下都是相同的，这时我们便可以通过 `eslint` 提供的 `extends` 配置项来扩展我们的配置。它会继承我们指定好的所有配置（规则、插件和语言选项）。
 
 `extends` 值类型：
 
@@ -137,9 +138,9 @@ npx eslint <filepath>
 ### 语法
 
 `env` 告诉了 `eslint` 我们代码环境中内置了哪些全局变量，而 `parserOptions` 告诉了 `eslint` 该用什么样的语法去检查我们的代码。默认 `eslint` 使用的是 ECMAScript 5 的语法进行检查。
-`parseOptions` 属性
+`parserOptions` 属性
 
-- ecmaVersion 可选配置值 3、5（默认）、6、7、8...、（你也可以设置成 2015、2016）、latset（最新版）
+- ecmaVersion 可选配置值 3、5（默认）、6、7、8...、（你也可以设置成 2015、2016）、latest（最新版）
 - sourceType 默认为 script、也可以是 module
 - allowReserved 是否允许使用 ES 保留字作为标识符（如果 ecmaVersion 为 3）
 - ecmaFeatures
@@ -170,7 +171,7 @@ npx eslint <filepath>
 `eslint` 拥有大量的[内置规则](https://eslint.org/docs/latest/rules/)，这些规则如果你不进行任何配置的话，默认都是关闭的。当然你可以直接通过配置 `extends: 'eslint:recommended'` 来直接开启所有 `eslint` 推荐的规则。也可以去内置规则中选择你需要的规则进行手动开启和关闭。
 
 :::tip
-不推荐你使用 `extends: eslint:all` 来开启所有的 `eslint` 规则，虽然它能在一定程度上给带来很严格的规则校验，但它会随着你 `eslint` 版本的变化而变化。对于不同版本的 `eslint` ，它可能会拥有不同的规则（如新版本新增的规则、废弃的规则）
+不推荐你使用 `extends: eslint:all` 来开启所有的 `eslint` 规则，虽然它能在一定程度上带来严格的规则校验，但它会随着你 `eslint` 版本的变化而变化。对于不同版本的 `eslint` ，它可能会拥有不同的规则（如新版本新增的规则、废弃的规则）
 :::
 
 ### 配置规则
@@ -184,7 +185,7 @@ npx eslint <filepath>
 
 ### 插件规则
 
-`eslint` 默认只支持 JS 的规则检查，对于一些特殊的文件（如 .vue）。这时候使用 `eslint` 内置的规则就有点不够看了，`eslint` 对于 vue 的规则和语法并没有很好的一个支持，针对这种情况，我们可以使用 `eslint` 插件中的规则
+`eslint` 默认只支持 JS 的规则检查，对于一些特殊的文件（如 .vue）。这时候使用 `eslint` 内置的规则就有点不够看了，`eslint` 对于 vue 的规则和语法并没有很好的一个支持，针对这种情况，我们可以使用 eslint 插件中的规则
 
 ```json
 {
@@ -257,7 +258,7 @@ console.log('bar')
 
 ### 解析器
 
-`eslit` 工作原理：我们知道，eslint 之所以能过对我们的代码进行检查，是因为它将我们的代码解析成了抽象语法（AST），如果不太了解抽象语法树，你可以简单理解成它使用一个 JavaScript 对象来描述我们的代码。然后通过分析抽象语法树，看它时候符合配置的规则。如果不符合再给出相应的提示。而解析器要做的事情就是将代码解析成 AST
+`eslit` 工作原理：我们知道，eslint 之所以能过对我们的代码进行检查，是因为它将我们的代码解析成了抽象语法（AST），如果不太了解抽象语法树，你可以简单理解成它使用一个 JavaScript 对象来描述我们的代码。然后通过分析抽象语法树，看它是否符合配置的规则。如果不符合再给出相应的提示。而解析器要做的事情就是将代码解析成 AST
 
 默认情况下，`eslint` 使用 [Espree](https://github.com/eslint/espree)为
 
