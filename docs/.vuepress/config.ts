@@ -47,6 +47,11 @@ export default defineConfig4CustomTheme({
             title: 'prettier',
             path: '/engineering/prettier.md',
           },
+
+          {
+            title: 'commitlint',
+            path: '/engineering/commitlint.md',
+          },
         ],
       },
     ],
