@@ -42,6 +42,11 @@ export default defineConfig4CustomTheme({
               { title: 'eslint基础知识', path: '/engineering/eslint.md' },
             ],
           },
+
+          {
+            title: 'prettier',
+            path: '/engineering/prettier.md',
+          },
         ],
       },
     ],
