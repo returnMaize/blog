@@ -40,6 +40,12 @@ export default defineConfig4CustomTheme({
             title: 'eslint',
             children: [
               { title: 'eslint基础知识', path: '/engineering/eslint.md' },
+              { title: 'eslint + ts', path: '/engineering/eslint-ts.md' },
+              { title: 'eslint + vue', path: '/engineering/eslint-vue.md' },
+              {
+                title: 'eslint + prettier',
+                path: '/engineering/eslint-prettier.md',
+              },
             ],
           },
 
