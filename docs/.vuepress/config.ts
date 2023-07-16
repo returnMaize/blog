@@ -58,6 +58,11 @@ export default defineConfig4CustomTheme({
             title: 'commitlint',
             path: '/engineering/commitlint.md',
           },
+
+          {
+            title: '编码规范工程化',
+            path: '/engineering/code-standard.md',
+          },
         ],
       },
     ],
