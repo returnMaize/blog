@@ -23,15 +23,15 @@ export default defineConfig4CustomTheme({
       //   ],
       // },
 
-      // {
-      //   title: 'Vue篇',
-      //   children: [
-      //     {
-      //       title: '从模版到视图原理（2.x）',
-      //       path: '/vue/template-to-dom-2.x.md',
-      //     },
-      //   ],
-      // },
+      {
+        title: 'Vue原理篇',
+        children: [
+          {
+            title: '从模版到视图原理（2.x）',
+            path: '/vue/template-to-dom-2.x.md',
+          },
+        ],
+      },
 
       {
         title: '工程化篇',

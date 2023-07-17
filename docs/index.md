@@ -1,5 +1,7 @@
 ## 导航
 
+- Vue 原理篇
+  - [从模版到视图原理（2.x）](https://returnmaize.github.io/blog/vue/template-to-dom-2.x.html)
 - 工程化
   - eslint
     - [eslint 基础知识](https://returnmaize.github.io/blog/engineering/eslint.html)
