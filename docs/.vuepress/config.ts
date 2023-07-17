@@ -30,6 +30,10 @@ export default defineConfig4CustomTheme({
             title: '从模版到视图原理（2.x）',
             path: '/vue/template-to-dom-2.x.md',
           },
+          {
+            title: '组件原理（2.x）',
+            path: '/vue/component-2.x.md',
+          },
         ],
       },
 
