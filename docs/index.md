@@ -4,6 +4,7 @@
   - [从模版到视图原理（2.x）](https://returnmaize.github.io/blog/vue/template-to-dom-2.x.html)
   - [组件原理（2.x）](https://returnmaize.github.io/blog/vue/component-2.x.html)
   - [响应式原理之组件更新（2.x）](https://returnmaize.github.io/blog/vue/reactive-component-update.html)
+  - [响应式原理之计算属性（2.x）](https://returnmaize.github.io/blog/vue/reactive-computed.html)
 - 工程化
   - eslint
     - [eslint 基础知识](https://returnmaize.github.io/blog/engineering/eslint.html)

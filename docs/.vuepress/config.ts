@@ -38,6 +38,18 @@ export default defineConfig4CustomTheme({
             title: '响应式原理之组件更新（2.x）',
             path: '/vue/reactive-component-update.md',
           },
+          {
+            title: '组件更新之diff算法（2.x）',
+            path: '/vue/reactive-diff.md',
+          },
+          {
+            title: '响应式原理之计算属性（2.x）',
+            path: '/vue/reactive-computed.md',
+          },
+          {
+            title: '响应式原理之watch（2.x）',
+            path: '/vue/reactive-watch.md',
+          },
         ],
       },
 
