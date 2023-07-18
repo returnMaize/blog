@@ -50,6 +50,14 @@ export default defineConfig4CustomTheme({
             title: '响应式原理之watch（2.x）',
             path: '/vue/reactive-watch.md',
           },
+          {
+            title: '3.x vs 2.x',
+            path: '/vue/2.x-to-3.x-optimize.md',
+          },
+          // {
+          //   title: '从模版到视图原理（3.x）',
+          //   path: '/vue/template-to-dom-3.x.md',
+          // },
         ],
       },
 
