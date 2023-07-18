@@ -34,6 +34,10 @@ export default defineConfig4CustomTheme({
             title: '组件原理（2.x）',
             path: '/vue/component-2.x.md',
           },
+          {
+            title: '响应式原理之组件更新（2.x）',
+            path: '/vue/reactive-component-update.md',
+          },
         ],
       },
 
