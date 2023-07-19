@@ -54,10 +54,10 @@ export default defineConfig4CustomTheme({
             title: '3.x vs 2.x',
             path: '/vue/2.x-to-3.x-optimize.md',
           },
-          // {
-          //   title: '从模版到视图原理（3.x）',
-          //   path: '/vue/template-to-dom-3.x.md',
-          // },
+          {
+            title: '组件渲染原理（3.x）',
+            path: '/vue/template-to-dom-3.x.md',
+          },
         ],
       },
 

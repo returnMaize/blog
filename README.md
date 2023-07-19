@@ -8,6 +8,7 @@
   - [响应式原理之计算属性（2.x）](https://returnmaize.github.io/blog/vue/reactive-computed.html)
   - [响应式原理之 watch（2.x）](https://returnmaize.github.io/blog/vue/reactive-watch.html)
   - [3.x vs 2.x](https://returnmaize.github.io/blog/vue/2.x-to-3.x-optimize.html)
+  - [组件渲染原理（3.x）](https://returnmaize.github.io/blog/vue/template-to-dom-3.x.html)
 - 工程化
   - eslint
     - [eslint 基础知识](https://returnmaize.github.io/blog/engineering/eslint.html)
