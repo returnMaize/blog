@@ -58,6 +58,14 @@ export default defineConfig4CustomTheme({
             title: '组件渲染原理（3.x）',
             path: '/vue/template-to-dom-3.x.md',
           },
+          {
+            title: '响应式原理之组件更新（3.x）',
+            path: '/vue/reactive-component-update-3.x.md',
+          },
+          {
+            title: '组件更新之diff算法（3.x）',
+            path: '/vue/component-update-diff-3.x.md',
+          },
         ],
       },
 

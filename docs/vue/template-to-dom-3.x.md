@@ -343,7 +343,6 @@ const setupRenderEffect: SetupRenderEffectFn = (
 ) => {
   // 调用 effect 函数，这里传入了 componentEffect 和 prodEffectOptions 两个参数
   // effect 函数会在开始时调用一次 componentEffect 函数
-  // 并且当 prodEffectOptions 中数据发生变化时也会调用一遍
   instance.update = effect(function componentEffect() {
     if (!instance.isMounted) {
       let vnodeHook: VNodeHook | null | undefined
