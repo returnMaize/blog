@@ -67,6 +67,10 @@ export default defineConfig4CustomTheme({
             path: '/vue/reactive-api.md',
           },
           {
+            title: '响应式原理之计算属性（3.x）',
+            path: '/vue/reactive-computed-3.x.md',
+          },
+          {
             title: '组件更新之diff算法（3.x）',
             path: '/vue/component-update-diff-3.x.md',
           },

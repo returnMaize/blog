@@ -11,6 +11,7 @@
   - [组件渲染原理（3.x）](https://returnmaize.github.io/blog/vue/template-to-dom-3.x.html)
   - [响应式原理之组件更新（3.x）](https://returnmaize.github.io/blog/vue/reactive-component-update-3.x.html)
   - [响应式 API ref 和 toRefs（3.x）](https://returnmaize.github.io/blog/vue/reactive-api.html)
+  - [响应式原理之计算属性（3.x）](https://returnmaize.github.io/blog/vue/reactive-computed-3.x.html)
   - [组件更新之 diff 算法（3.x）](https://returnmaize.github.io/blog/vue/component-update-diff-3.x.html)
 - 工程化
   - eslint
