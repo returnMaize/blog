@@ -63,6 +63,10 @@ export default defineConfig4CustomTheme({
             path: '/vue/reactive-component-update-3.x.md',
           },
           {
+            title: '响应式 API ref 和 toRefs（3.x）',
+            path: '/vue/reactive-api.md',
+          },
+          {
             title: '组件更新之diff算法（3.x）',
             path: '/vue/component-update-diff-3.x.md',
           },
