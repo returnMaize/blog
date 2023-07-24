@@ -107,6 +107,11 @@ export default defineConfig4CustomTheme({
             title: '编码规范工程化',
             path: '/engineering/code-standard.md',
           },
+
+          {
+            title: 'vite',
+            path: '/engineering/vite.md',
+          },
         ],
       },
     ],

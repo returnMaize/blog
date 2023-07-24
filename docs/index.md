@@ -22,3 +22,4 @@
   - [prettier](https://returnmaize.github.io/blog/engineering/prettier.html)
   - [commitlint](https://returnmaize.github.io/blog/engineering/commitlint.html)
   - [编码规范工程化](https://returnmaize.github.io/blog/engineering/code-standard.html)
+  - [vite](https://returnmaize.github.io/blog/engineering/vite.html)
