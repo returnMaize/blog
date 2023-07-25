@@ -201,3 +201,55 @@ vite 中的插件就是在 vite 不同生命周期钩子时做一些事情。你
 - [vite plugin API](https://cn.vitejs.dev/guide/api-plugin.html#vite-specific-hooks)
 - [vite 官方插件](https://cn.vitejs.dev/plugins/)
 - [vite 社区插件](https://github.com/vitejs/awesome-vite#plugins)
+
+## vite 性能优化
+
+- 将 `node_modules` 下的包单独打包成一个 chunk，这样有利于浏览器的缓存。
+
+**vite.config.ts**
+
+```ts
+export default defineConfig({
+  // ...
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            return 'vendor'
+          }
+        },
+      },
+    },
+  },
+})
+```
+
+- 对于一些路由使用到的组件，使用动态引入 `import` 配合 rollup 实现代码分割，完成按需加载，提高首屏加载速度。
+
+```ts
+const routes = [
+  {
+    path: 'xxx',
+    name: 'xxx',
+    meta: {
+      title: 'xxx',
+    },
+    component: () => import('@/views/xxx/xxx/xxx/index.vue'),
+  },
+]
+```
+
+- 对于非常大的文件可以采用 gzip 压缩，小文件不要使用（浏览器解压也需要时间，小文件会适得其反）
+
+使用插件 `vite-plugin-compression`
+
+- 对于第三方包使用 cdn 加速
+
+使用插件 `vite-plugin-cdn-import`
+
+原理：在 transformIndexHtml 动态拥有 cdn 地址的 script 标签
+
+## 结尾
+
+本章只列出了 vite 一些常用配置，如果你想了解更多关于 vite 的内容，可以阅读 [vite docs](https://cn.vitejs.dev/)
