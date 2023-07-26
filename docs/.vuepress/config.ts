@@ -112,6 +112,17 @@ export default defineConfig4CustomTheme({
             title: 'vite',
             path: '/engineering/vite.md',
           },
+
+          {
+            title: 'webpack',
+            children: [
+              { title: 'webpack 使用篇', path: '/engineering/webpack-use.md' },
+              {
+                title: 'webpack 原理篇',
+                path: '/engineering/webpack-sourcecode.md',
+              },
+            ],
+          },
         ],
       },
     ],
