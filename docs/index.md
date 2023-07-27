@@ -23,3 +23,6 @@
   - [commitlint](https://returnmaize.github.io/blog/engineering/commitlint.html)
   - [编码规范工程化](https://returnmaize.github.io/blog/engineering/code-standard.html)
   - [vite](https://returnmaize.github.io/blog/engineering/vite.html)
+  - webpack
+    - [webpack 使用篇](https://returnmaize.github.io/blog/engineering/webpack-use.html)
+    - [webpack 原理篇](https://returnmaize.github.io/blog/engineering/webpack-sourcecode.html)

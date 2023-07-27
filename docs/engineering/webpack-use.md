@@ -356,3 +356,309 @@ module.exports = merge(commonConfig, {
   // ...
 })
 ```
+
+## 生产环境优化之 tree shaking
+
+webpack 在生产环境（也就是 mode 为 production）下会默认开启 tree shaking 功能，对于没有使用到的代码将不会被打包到生产环境中。
+
+**其他环境下开启 tree shaking**
+
+```js
+module.exports = {
+  mode: 'development', // or null
+
+  optimization: {
+    usedExports: true,
+    minimize: true,
+  },
+}
+```
+
+## 生产环境优化之 concatenateModules
+
+```js
+module.exports = {
+  mode: 'production',
+
+  optimization: {
+    // 将多个模块打包到一个函数中
+    concatenateModules: true,
+  },
+}
+```
+
+## 生产环境优化之代码分割
+
+**动态导入**
+
+webpack 打包时对于使用 `import` 动态导入的模块，会自动将该模块打包成一个单独的 `chunk` 输出。
+
+**魔法注释**
+
+```js
+// xxx.js 会被打包到单独的 chunk 中
+import('xxx.js')
+// 默认情况下，打包出的 chunk 名字是 chunkid，我们可以通过魔法注释的方式自定义 chunkName
+// 并且也可以通过相同的 chunkName 来控制将那些文件打包到同一个 chunk 中
+import(
+  /* webpackChunkName: "component" */
+  'a.vue'
+)
+import(
+  /* webpackChunkName: "component" */
+  'b.vue'
+)
+// 这样 a.vue 和 b.vue 就会被打包到一个名为 component 的 chunk 中去
+```
+
+更多关于魔法注释，参考 [webpack docs](https://webpack.js.org/api/module-methods/#magic-comments)
+
+**公共模块提取**
+
+对于公共模块，我们可以将其打包到一个 chunk 中
+
+```js
+module.exports = {
+  //...
+  optimization: {
+    splitChunks: {
+      // include all types of chunks
+      chunks: 'all',
+    },
+  },
+}
+```
+
+更多关于代码分割内容，参考 [webpack docs](https://webpack.js.org/plugins/split-chunks-plugin/#optimizationsplitchunks)
+
+**css 代码打包优化**
+
+- 使用 mini-css-extract-plugin 插件提取 css
+- 使用 optimize-css-assets-webpack-plugin 插件压缩 css
+
+```js
+// 提取 css，通过 link 引入
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+// 压缩 css
+const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin')
+// 压缩 js
+const TerserWebpackPlugin = require('terser-webpack-plugin')
+
+module.exports = {
+  // 你可能已经注意到这里的插件没有放到 plugins 中，而放到了 minimizer 中
+  // 原因：生产环境默认开启压缩，放到 minimizer 中只有在生产环境时才会对 js、css 压缩
+  optimization: {
+    minimizer: [
+      new OptimizeCssAssetsWebpackPlugin(),
+      new TerserWebpackPlugin(),
+    ],
+  },
+
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        // css-loader 处理好的 css 文件提取成单独的 css 文件，并通过 link 引入
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+      },
+    ],
+  },
+
+  plugins: [new MiniCssExtractPlugin()],
+}
+```
+
+## 生产环境优化之文件 hash
+
+hash 配合浏览器的强缓存应该是资源缓存的最佳实践了。
+
+- hash：应用级别 hash
+
+```js
+module.exports = {
+  // ...
+  output: {
+    filename: '[name].[hash].bundle.js',
+  },
+}
+```
+
+- chunkhash：chunk 级别 hash
+
+```js
+module.exports = {
+  // ...
+  output: {
+    filename: '[name].[chunkhash].bundle.js',
+  },
+}
+```
+
+- contenthash：文件级别 hash（推荐）
+
+```js
+module.exports = {
+  // ...
+  output: {
+    filename: '[name].[contenthash:8].bundle.js',
+  },
+}
+```
+
+## 开发打包优化
+
+### 合理的使用 sourceMap
+
+**示例**
+
+```js
+module.exports = {
+  devtool: 'eval-cheap-module-source-map',
+}
+```
+
+### 避免生产环境的插件在开发环境下使用（如资源压缩类插件）
+
+**示例**
+
+```js
+module.exprots = {
+  // webpack 在生产坏境下开启压缩
+  optimization: {
+    minimizer: [
+      new OptimizeCssAssetsWebpackPlugin(),
+      new TerserWebpackPlugin(),
+    ],
+  },
+}
+```
+
+### 合理的配置 resolve 选项
+
+**示例**
+
+```js
+module.exports = {
+  resolve: {
+    // 尽可能少配置，配置过多的影响打包性能
+    extensions: ['json', 'js', 'vue', 'html'],
+  },
+}
+```
+
+### 使用 webpack.DllPlugin、webpack.DllReferencePlugin 和 AddAssetHtmlwebpackPlugin 完成第三方模块的打包缓存。
+
+**示例**
+
+首先我们将第三方模块提前打包好，并建立映射关系
+
+```js
+const path = require('path')
+const webpack = requier('webpack')
+
+module.exports = {
+  mode: 'production',
+
+  entry: ['loadsh', 'vue', 'moment', 'element-ui'],
+
+  output: {
+    // 将第三方模块提前打包
+    filename: '[name].dll.js',
+    path: path.resolve(__dirname, '../dll'),
+    library: '[name]',
+  },
+
+  plugins: [
+    // 生成第三方包的映射文件
+    new webpack.DllPlugin({
+      name: '[name]',
+      path: path.resolve(__dirname, '../dll/[name].manifest.json'),
+    }),
+  ],
+}
+```
+
+然后我们配置应用打包，当打包遇到第三方模块时，就去打包好的第三方模块中根据映射关系去找，如果找到就直接拿来用无需重复打包。
+
+```js
+const path = require('path')
+const webpack = require('webpack')
+const AddAssetHtmlwebpackPlugin = require('add-asset-html-webpack-plugin')
+
+module.exports = {
+  mode: 'development',
+
+  plugins: [
+    // html 中插入提前打包好的第三方模块
+    new AddAssetHtmlwebpackPlugin({
+      filepath: path.resolve(__dirname, '../dll/vendors.dll.js'),
+    }),
+    // 引用第三方模块时如果发现已经打包好了，就直接从打包好的 vendors 中去拿
+    new webpack.DllReferencePlugin({
+      manifest: path.resolve(__dirname, '../dll/vendors.manifest.json'),
+    }),
+  ],
+}
+```
+
+### 使用多线程打包
+
+使用 thread-loader 为处理模块的 loader 开启单独的 worker 池进行解析打包
+
+**示例**
+
+```js
+const threadLoader = require('thread-loader')
+
+const jsWorkerPool = {
+  // 产生的 worker 的数量，默认是 (cpu 核心数 - 1)
+  // 当 require('os').cpus() 是 undefined 时，则为 1
+  workers: 2,
+
+  // 闲置时定时删除 worker 进程
+  // 默认为 500ms
+  // 可以设置为无穷大， 这样在监视模式(--watch)下可以保持 worker 持续存在
+  poolTimeout: 2000,
+}
+
+const cssWorkerPool = {
+  // 一个 worker 进程中并行执行工作的数量
+  // 默认为 20
+  workerParallelJobs: 2,
+  poolTimeout: 2000,
+}
+
+threadLoader.warmup(jsWorkerPool, ['babel-loader'])
+threadLoader.warmup(cssWorkerPool, ['css-loader', 'postcss-loader'])
+
+module.exports = {
+  rules: [
+    {
+      test: /\.js$/,
+      exclude: /node_modules/,
+      // 创建一个 js worker 池
+      use: ['thread-loader', 'babel-loader'],
+    },
+    {
+      test: /\.s?css$/,
+      exclude: /node_modules/,
+      // 创建一个 css worker 池
+      use: [
+        'style-loader',
+        'thread-loader',
+        {
+          loader: 'css-loader',
+          options: {
+            modules: true,
+            localIdentName: '[name]__[local]--[hash:base64:5]',
+            importLoaders: 1,
+          },
+        },
+        'postcss-loader',
+      ],
+    },
+  ],
+}
+```
+
+**[打包优化文章参考](https://juejin.cn/post/6844904071736852487?searchId=202307271612050E61CD6FB327760E7FF0#heading-9)**
