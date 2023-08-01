@@ -28,3 +28,4 @@
     - [webpack 原理篇](https://returnmaize.github.io/blog/engineering/webpack-sourcecode.html)
 - 性能优化
   - [性能指标](https://returnmaize.github.io/blog/perf/performance-index.html)
+  - [性能优化-页面生命周期](https://returnmaize.github.io/blog/perf/page-lifecycle.html)
