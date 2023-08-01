@@ -26,3 +26,5 @@
   - webpack
     - [webpack 使用篇](https://returnmaize.github.io/blog/engineering/webpack-use.html)
     - [webpack 原理篇](https://returnmaize.github.io/blog/engineering/webpack-sourcecode.html)
+- 性能优化
+  - [性能指标](https://returnmaize.github.io/blog/perf/performance-index.html)

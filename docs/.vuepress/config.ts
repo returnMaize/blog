@@ -125,6 +125,17 @@ export default defineConfig4CustomTheme({
           },
         ],
       },
+
+      {
+        title: '性能优化篇',
+        children: [
+          { title: '性能指标', path: '/perf/performance-index.md' },
+          {
+            title: '根据页面生命周期进行性能优化',
+            path: '/perf/page-lifecycle.md',
+          },
+        ],
+      },
     ],
 
     logo: '/img/logo.png',
