@@ -20,6 +20,10 @@ export default defineConfig4CustomTheme({
             title: '浅谈函数式编程',
             path: '/basics/functional-program.md',
           },
+          {
+            title: '作用域、闭包、this',
+            path: '/basics/scope.md',
+          },
         ],
       },
 

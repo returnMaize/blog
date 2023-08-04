@@ -3,6 +3,7 @@
 - 基础篇
 
   - [浅谈函数式编程](https://returnmaize.github.io/blog/basics/functional-program.html)
+  - [作用域、闭包、this](https://returnmaize.github.io/blog/basics/scope.html)
 
 - Vue 原理篇
 
