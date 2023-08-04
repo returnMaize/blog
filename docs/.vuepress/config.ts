@@ -36,6 +36,10 @@ export default defineConfig4CustomTheme({
             title: '深入理解 JS 中的对象',
             path: '/basics/deeply-understand-the-obj.md',
           },
+          {
+            title: '字符发展史',
+            path: '/basics/char-history.md',
+          },
         ],
       },
 
