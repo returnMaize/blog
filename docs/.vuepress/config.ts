@@ -24,6 +24,10 @@ export default defineConfig4CustomTheme({
             title: '作用域、闭包、this',
             path: '/basics/scope.md',
           },
+          {
+            title: '事件循环',
+            path: '/basics/event-loop.md',
+          },
         ],
       },
 
