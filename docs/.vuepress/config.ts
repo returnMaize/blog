@@ -28,6 +28,14 @@ export default defineConfig4CustomTheme({
             title: '事件循环',
             path: '/basics/event-loop.md',
           },
+          {
+            title: 'TypeScript',
+            path: '/basics/typescript.md',
+          },
+          {
+            title: '深入理解 JS 中的对象',
+            path: '/basics/deeply-understand-the-obj.md',
+          },
         ],
       },
 

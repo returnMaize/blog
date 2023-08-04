@@ -5,6 +5,7 @@
   - [浅谈函数式编程](https://returnmaize.github.io/blog/basics/functional-program.html)
   - [作用域、闭包、this](https://returnmaize.github.io/blog/basics/scope.html)
   - [事件循环](https://returnmaize.github.io/blog/basics/event-loop.html)
+  - [深入理解 JS 中的对象](https://returnmaize.github.io/blog/basics/deeply-understand-the-obj.html)
 
 - Vue 原理篇
 
