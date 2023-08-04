@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>深入理解 JS 中的对象 | hx&#39;s blog</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    <link rel="icon" href="/blog/img/logo.png">
+    <meta name="description" content="hx&#39;s blog">
+    <meta name="keywords" content="blog">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.8b6be189.css" as="style"><link rel="preload" href="/blog/assets/js/app.ecab62fe.js" as="script"><link rel="preload" href="/blog/assets/js/2.19337781.js" as="script"><link rel="preload" href="/blog/assets/js/7.b83ac2f4.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.1ea387d4.js"><link rel="prefetch" href="/blog/assets/js/11.9084f34a.js"><link rel="prefetch" href="/blog/assets/js/12.667c18ee.js"><link rel="prefetch" href="/blog/assets/js/13.a0951c92.js"><link rel="prefetch" href="/blog/assets/js/14.be7fe739.js"><link rel="prefetch" href="/blog/assets/js/15.32c68068.js"><link rel="prefetch" href="/blog/assets/js/16.a074be44.js"><link rel="prefetch" href="/blog/assets/js/17.d264e798.js"><link rel="prefetch" href="/blog/assets/js/18.fa54d0bf.js"><link rel="prefetch" href="/blog/assets/js/19.d346215f.js"><link rel="prefetch" href="/blog/assets/js/20.a4d0f693.js"><link rel="prefetch" href="/blog/assets/js/21.9394fbdf.js"><link rel="prefetch" href="/blog/assets/js/22.793310c0.js"><link rel="prefetch" href="/blog/assets/js/23.841b65be.js"><link rel="prefetch" href="/blog/assets/js/24.69812372.js"><link rel="prefetch" href="/blog/assets/js/25.2f42edb5.js"><link rel="prefetch" href="/blog/assets/js/26.d64058c6.js"><link rel="prefetch" href="/blog/assets/js/27.334cdf9c.js"><link rel="prefetch" href="/blog/assets/js/28.7276956a.js"><link rel="prefetch" href="/blog/assets/js/29.15f99afd.js"><link rel="prefetch" href="/blog/assets/js/3.e41a5077.js"><link rel="prefetch" href="/blog/assets/js/30.2502ee0f.js"><link rel="prefetch" href="/blog/assets/js/31.d983ef5e.js"><link rel="prefetch" href="/blog/assets/js/32.51d10d24.js"><link rel="prefetch" href="/blog/assets/js/33.2cee88f3.js"><link rel="prefetch" href="/blog/assets/js/34.4c269983.js"><link rel="prefetch" href="/blog/assets/js/35.d3990116.js"><link rel="prefetch" href="/blog/assets/js/36.7273e82e.js"><link rel="prefetch" href="/blog/assets/js/37.a236bc9a.js"><link rel="prefetch" href="/blog/assets/js/4.c3eb0cb1.js"><link rel="prefetch" href="/blog/assets/js/5.8befe194.js"><link rel="prefetch" href="/blog/assets/js/6.8837a3c6.js"><link rel="prefetch" href="/blog/assets/js/8.50e5fa2c.js"><link rel="prefetch" href="/blog/assets/js/9.926f9b88.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.8b6be189.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><img src="/blog/img/logo.png" alt="hx's blog" class="logo"> <span class="site-name can-hide">hx's blog</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"> <a href="https://github.com/returnMaize/blog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"> <a href="https://github.com/returnMaize/blog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>基础篇</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/basics/functional-program.html" class="sidebar-link">浅谈函数式编程</a></li><li><a href="/blog/basics/scope.html" class="sidebar-link">作用域、闭包、this</a></li><li><a href="/blog/basics/event-loop.html" class="sidebar-link">事件循环</a></li><li><a href="/blog/basics/typescript.html" class="sidebar-link">TypeScript</a></li><li><a href="/blog/basics/deeply-understand-the-obj.html" aria-current="page" class="active sidebar-link">深入理解 JS 中的对象</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/basics/deeply-understand-the-obj.html#深入理解-js-中的对象" class="sidebar-link">深入理解 JS 中的对象</a></li><li class="sidebar-sub-header"><a href="/blog/basics/deeply-understand-the-obj.html#数据属性" class="sidebar-link">数据属性</a></li><li class="sidebar-sub-header"><a href="/blog/basics/deeply-understand-the-obj.html#访问器属性" class="sidebar-link">访问器属性</a></li></ul></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue原理篇</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>工程化篇</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>性能优化篇</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="深入理解-js-中的对象"><a href="#深入理解-js-中的对象" class="header-anchor">#</a> 深入理解 JS 中的对象</h2> <blockquote><p>ECMA-262 第 5 版在定义只有内部才用的特性（attribute）时，描述了属性（property）的各种特征。 ECMA-262
+定义这些特性是为了实现 JavaScript 引擎用的，因此在 JavaScript 中不能直接访问它们。为了
+表示特性是内部值，该规范把它们放在了两对儿方括号中，例如[[Enumerable]]。</p></blockquote> <p>以上是《红宝书》的原话。意思就是 ECMAScript 给对象属性定义了一些特性了，这些特性用来描述对象属性的特征。而这些特性是给 js 引擎用的，在 js 中不能直接访问，并且为了凸显这是内部值，把他们放到了双中括号中。</p> <p>而 JS 中的对象中的属性其实分为两种属性：</p> <ul><li>一种是数据属性（对象字面量添加的属性就是数据属性）</li> <li>另一种时访问器属性（需要使用特定的对象 API 才能定义）。</li></ul> <h2 id="数据属性"><a href="#数据属性" class="header-anchor">#</a> 数据属性</h2> <p>数据属性中的 4 个特性</p> <ul><li>[[Configurable]]: 能否通过 delete 操作符删除属性 能否修改属性的特性 能否修改成访问器属性（普通方式- 添加的属性该特性默认为 true 通过 defineProperty 方式定义的属性默认为 false）</li> <li>[[Enumerable]]: 能否通过 for-in 遍历 （普通方式添加的属性该特性默认为 true 通过 defineProperty 方式定义的属性默认为 false）</li> <li>[[Writable]]: 能否修改属性的值 （普通方式添加的属性该特性默认为 true 通过 defineProperty 方式定义的属性该特性默认为 false）</li> <li>[[Value]]: 该属性的属性值 读取这个属性时读取的为这个值 修改改属性时 修改的也是这个值 默认为 undefined</li></ul> <p>我们可以通过 Object.getOwnPropertyDescriptor API 来得知对象中属性具有的特性</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'hjx'</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>Object<span class="token punctuation">.</span><span class="token function">getOwnPropertyDescriptor</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> <span class="token string">'name'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment">/** 输出结果
+{
+    configurable: true
+    enumerable: true
+    value: &quot;hjx&quot;
+    writable: true
+}
+
+结论：obj.name 是一个数据属性
+它具有以下特性：
+  1. 可操作
+  2. 可枚举
+  3. 值为 'hjx'
+  4. 可修改
+
+当我们通过 obj.name 访问一个数据属性的值时，js 引擎取得就是该属性的 [[value]] 特性
+ */</span>
+</code></pre></div><h2 id="访问器属性"><a href="#访问器属性" class="header-anchor">#</a> 访问器属性</h2> <p>访问器属性中的 4 个特性</p> <ul><li>[[Configurable]]: 是否可操作</li> <li>[[Enumerable]]: 是否可枚举</li> <li>[[Get]]: 默认 undefined</li> <li>[[Set]]: 默认 undefined</li></ul> <p>访问器属性的定义需要借助于 Object.defineProperty API</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+Object<span class="token punctuation">.</span><span class="token function">defineProperty</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> <span class="token string">'name'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  <span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token string">'hjx'</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>Object<span class="token punctuation">.</span><span class="token function">getOwnPropertyDescriptor</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> <span class="token string">'name'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment">/** 输出结果
+{
+    configurable: false
+    enumerable: false
+    get: ƒ get()
+    set: undefined
+}
+
+当我们通过 obj.name 访问这个访问器属性的值时，js 引擎会调用 [[get]] 这个函数并将值返回
+ */</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blog/basics/typescript.html" class="prev">
+        TypeScript
+      </a></span> <span class="next"><a href="/blog/vue/template-to-dom-2.x.html">
+        从模版到视图原理（2.x）
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.ecab62fe.js" defer></script><script src="/blog/assets/js/2.19337781.js" defer></script><script src="/blog/assets/js/7.b83ac2f4.js" defer></script>
+  </body>
+</html>
