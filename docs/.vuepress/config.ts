@@ -13,15 +13,15 @@ export default defineConfig4CustomTheme({
     name: [{ text: '首页', link: '/index.md' }],
 
     sidebar: [
-      // {
-      //   title: 'JS基础篇',
-      //   children: [
-      //     {
-      //       title: '事件循环',
-      //       path: '/basics/event-loop.md',
-      //     },
-      //   ],
-      // },
+      {
+        title: '基础篇',
+        children: [
+          {
+            title: '浅谈函数式编程',
+            path: '/basics/functional-program.md',
+          },
+        ],
+      },
 
       {
         title: 'Vue原理篇',

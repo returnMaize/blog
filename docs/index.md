@@ -1,6 +1,11 @@
 ## 导航
 
+- 基础篇
+
+  - [浅谈函数式编程](https://returnmaize.github.io/blog/basics/functional-program.html)
+
 - Vue 原理篇
+
   - [从模版到视图原理（2.x）](https://returnmaize.github.io/blog/vue/template-to-dom-2.x.html)
   - [组件原理（2.x）](https://returnmaize.github.io/blog/vue/component-2.x.html)
   - [响应式原理之组件更新（2.x）](https://returnmaize.github.io/blog/vue/reactive-component-update.html)
@@ -13,7 +18,9 @@
   - [响应式 API ref 和 toRefs（3.x）](https://returnmaize.github.io/blog/vue/reactive-api.html)
   - [响应式原理之计算属性（3.x）](https://returnmaize.github.io/blog/vue/reactive-computed-3.x.html)
   - [组件更新之 diff 算法（3.x）](https://returnmaize.github.io/blog/vue/component-update-diff-3.x.html)
+
 - 工程化
+
   - eslint
     - [eslint 基础知识](https://returnmaize.github.io/blog/engineering/eslint.html)
     - [eslint + ts](https://returnmaize.github.io/blog/engineering/eslint-ts.html)
@@ -26,6 +33,7 @@
   - webpack
     - [webpack 使用篇](https://returnmaize.github.io/blog/engineering/webpack-use.html)
     - [webpack 原理篇](https://returnmaize.github.io/blog/engineering/webpack-sourcecode.html)
+
 - 性能优化
   - [性能指标](https://returnmaize.github.io/blog/perf/performance-index.html)
   - [性能优化-页面生命周期](https://returnmaize.github.io/blog/perf/page-lifecycle.html)
