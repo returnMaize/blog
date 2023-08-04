@@ -5,6 +5,7 @@
   - [浅谈函数式编程](/basics/functional-program.html)
   - [作用域、闭包、this](/basics/scope.html)
   - [事件循环](/basics/event-loop.html)
+  - [TypeScript](/basics/typescript.html)
   - [深入理解 JS 中的对象](/basics/deeply-understand-the-obj.html)
   - [字符发展史](/basics/char-history.html)
 
