@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>JS 中的内存管理 | hx&#39;s blog</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    <link rel="icon" href="/blog/img/logo.png">
+    <meta name="description" content="hx&#39;s blog">
+    <meta name="keywords" content="blog">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.8b6be189.css" as="style"><link rel="preload" href="/blog/assets/js/app.6dcd6427.js" as="script"><link rel="preload" href="/blog/assets/js/2.19337781.js" as="script"><link rel="preload" href="/blog/assets/js/11.ad4ccb1d.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.037764f4.js"><link rel="prefetch" href="/blog/assets/js/12.884557f5.js"><link rel="prefetch" href="/blog/assets/js/13.79c3d356.js"><link rel="prefetch" href="/blog/assets/js/14.34e66720.js"><link rel="prefetch" href="/blog/assets/js/15.684b1372.js"><link rel="prefetch" href="/blog/assets/js/16.13efc876.js"><link rel="prefetch" href="/blog/assets/js/17.4d2060a3.js"><link rel="prefetch" href="/blog/assets/js/18.872aeb52.js"><link rel="prefetch" href="/blog/assets/js/19.6d2b268d.js"><link rel="prefetch" href="/blog/assets/js/20.ec965d3d.js"><link rel="prefetch" href="/blog/assets/js/21.e881fb54.js"><link rel="prefetch" href="/blog/assets/js/22.25c2a98f.js"><link rel="prefetch" href="/blog/assets/js/23.6142d4b0.js"><link rel="prefetch" href="/blog/assets/js/24.3d5c530f.js"><link rel="prefetch" href="/blog/assets/js/25.a092b7b2.js"><link rel="prefetch" href="/blog/assets/js/26.55eb9937.js"><link rel="prefetch" href="/blog/assets/js/27.b5b273bd.js"><link rel="prefetch" href="/blog/assets/js/28.9e141a7e.js"><link rel="prefetch" href="/blog/assets/js/29.eaaf8f56.js"><link rel="prefetch" href="/blog/assets/js/3.fff3cf7c.js"><link rel="prefetch" href="/blog/assets/js/30.bdac8124.js"><link rel="prefetch" href="/blog/assets/js/31.d25b8695.js"><link rel="prefetch" href="/blog/assets/js/32.3fbdbb2a.js"><link rel="prefetch" href="/blog/assets/js/33.4352f2a4.js"><link rel="prefetch" href="/blog/assets/js/34.9ea42745.js"><link rel="prefetch" href="/blog/assets/js/35.0cb71724.js"><link rel="prefetch" href="/blog/assets/js/36.5a940d8f.js"><link rel="prefetch" href="/blog/assets/js/37.9b67d583.js"><link rel="prefetch" href="/blog/assets/js/38.70fc6a13.js"><link rel="prefetch" href="/blog/assets/js/39.39382982.js"><link rel="prefetch" href="/blog/assets/js/4.c3eb0cb1.js"><link rel="prefetch" href="/blog/assets/js/5.8befe194.js"><link rel="prefetch" href="/blog/assets/js/6.8837a3c6.js"><link rel="prefetch" href="/blog/assets/js/7.21b9df0d.js"><link rel="prefetch" href="/blog/assets/js/8.1f155a75.js"><link rel="prefetch" href="/blog/assets/js/9.4ace1c37.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.8b6be189.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><img src="/blog/img/logo.png" alt="hx's blog" class="logo"> <span class="site-name can-hide">hx's blog</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"> <a href="https://github.com/returnMaize/blog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"> <a href="https://github.com/returnMaize/blog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>基础篇</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/basics/functional-program.html" class="sidebar-link">浅谈函数式编程</a></li><li><a href="/blog/basics/scope.html" class="sidebar-link">作用域、闭包、this</a></li><li><a href="/blog/basics/event-loop.html" class="sidebar-link">事件循环</a></li><li><a href="/blog/basics/typescript.html" class="sidebar-link">TypeScript</a></li><li><a href="/blog/basics/deeply-understand-the-obj.html" class="sidebar-link">深入理解 JS 中的对象</a></li><li><a href="/blog/basics/char-history.html" class="sidebar-link">字符发展史</a></li><li><a href="/blog/basics/gc.html" aria-current="page" class="active sidebar-link">垃圾回收机制</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/basics/gc.html#js-中的内存管理" class="sidebar-link">JS 中的内存管理</a></li><li class="sidebar-sub-header"><a href="/blog/basics/gc.html#垃圾" class="sidebar-link">垃圾</a></li><li class="sidebar-sub-header"><a href="/blog/basics/gc.html#常见的-gc-算法" class="sidebar-link">常见的 GC 算法</a></li><li class="sidebar-sub-header"><a href="/blog/basics/gc.html#引用计数算法" class="sidebar-link">引用计数算法</a></li><li class="sidebar-sub-header"><a href="/blog/basics/gc.html#标记清除算法" class="sidebar-link">标记清除算法</a></li><li class="sidebar-sub-header"><a href="/blog/basics/gc.html#标记整理算法" class="sidebar-link">标记整理算法</a></li><li class="sidebar-sub-header"><a href="/blog/basics/gc.html#分代回收-v8-垃圾回收机制" class="sidebar-link">分代回收（V8 垃圾回收机制）</a></li></ul></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue原理篇</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>工程化篇</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>性能优化篇</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="js-中的内存管理"><a href="#js-中的内存管理" class="header-anchor">#</a> JS 中的内存管理</h2> <p>JS 中的内存管理是自动的，它没有为我们提供手动开辟内存空间的 API，也没有给我们提供释放内存 API。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// JS 引擎自动为你开辟一块内存空间</span>
+<span class="token keyword">let</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'hjx'</span> <span class="token punctuation">}</span>
+
+<span class="token comment">// JS 引擎自动释放这块内存空间</span>
+obj <span class="token operator">=</span> <span class="token keyword">null</span>
+</code></pre></div><h2 id="垃圾"><a href="#垃圾" class="header-anchor">#</a> 垃圾</h2> <p>什么时候垃圾？</p> <p>垃圾就是开辟了一片空间，但是没有使用这片空间，那这边空间就可以叫做垃圾。</p> <p>下面我们来看看 JS 是通过什么方式回收垃圾，已经常见的垃圾回收算法（GC）</p> <h2 id="常见的-gc-算法"><a href="#常见的-gc-算法" class="header-anchor">#</a> 常见的 GC 算法</h2> <ul><li>引用计数算法</li> <li>标记清除算法</li> <li>标记整理算法</li> <li>分代回收（V8）</li></ul> <h2 id="引用计数算法"><a href="#引用计数算法" class="header-anchor">#</a> 引用计数算法</h2> <p>JS 引擎为每一个块开辟的内存空间都维护一个引用数值。这块空间被引用一次数值 +1，断开引用数值就 -1，如果发现某块空间引用数值为 0。那么这块内存空间就会被视为垃圾被释放掉。</p> <p><strong>示例</strong></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'hjx'</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">/**
+ * foo 执行，开辟了一块空间 {name: 'hjx'}
+ * 执行完成，空间为被引用，引用数值为 0
+ * 垃圾，空间释放
+ */</span>
+</code></pre></div><p>但这种垃圾回收存在很大的弊端，当遇到循环引用时，两个相互引用的对象它们的引用值永远不会为零。</p> <p><strong>示例</strong></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> obj1 <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'hjx'</span> <span class="token punctuation">}</span>
+  <span class="token keyword">const</span> obj2 <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'cmx'</span> <span class="token punctuation">}</span>
+
+  obj1<span class="token punctuation">.</span>love <span class="token operator">=</span> obj2
+  obj2<span class="token punctuation">.</span>love <span class="token operator">=</span> obj1
+<span class="token punctuation">}</span>
+
+<span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">/**
+ * foo 执行，开辟空间 {name: 'hjx'} 和 {name: 'cmx'}
+ * obj1.love = obj2 内存空间 {name: 'cmx'} 引用计数为1
+ * obj2.love = obj1 内存空间 {name: 'hjx'} 引用计数为1
+ * foo 执行完毕（内存无法释放）
+ */</span>
+</code></pre></div><p><strong>优点：</strong> 发现垃圾立马清楚</p> <p><strong>缺点：</strong> 无法清除循环引用</p> <h2 id="标记清除算法"><a href="#标记清除算法" class="header-anchor">#</a> 标记清除算法</h2> <ol><li><p>从根对象开始递归遍历所有可达对象并进行标记（这里的可达对象就是能够通过根对象直接或间接访问到的对象）</p></li> <li><p>遍历内存堆中所有对象，没有被标记的对象都是垃圾。</p></li></ol> <p><strong>示例</strong></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> obj1 <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'hjx'</span> <span class="token punctuation">}</span>
+  <span class="token keyword">const</span> obj2 <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'cmx'</span> <span class="token punctuation">}</span>
+
+  obj1<span class="token punctuation">.</span>love <span class="token operator">=</span> obj2
+  obj2<span class="token punctuation">.</span>love <span class="token operator">=</span> obj1
+<span class="token punctuation">}</span>
+
+<span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">/**
+ * 通过根对象 window 查找可达对象，没有可达对象（这里不考虑函数）
+ * foo 执行完成，遍历堆中对象，发现 {name: 'hjx'} 和 {name: 'cmx'}
+ * 两个内存空间未被标记，都是垃圾进行空间释放
+ */</span>
+</code></pre></div><p>**优点：**对比引用计数解决了循环引用问题
+**缺点：**释放垃圾内存空间时原地释放，导致空间碎片化</p> <h2 id="标记整理算法"><a href="#标记整理算法" class="header-anchor">#</a> 标记整理算法</h2> <p>和标记清除算法一样，不同的是。标记整理算法在释放空间前会将内存空间进行整理，有用的对象空间会放到一边，垃圾内存空间放到另一边，整理完成后释放垃圾空间。</p> <p>**优点：**减少空间碎片化
+**缺点：**整理空间需要时间，整理和释放空间都会阻塞主线程代码的执行。</p> <h2 id="分代回收-v8-垃圾回收机制"><a href="#分代回收-v8-垃圾回收机制" class="header-anchor">#</a> 分代回收（V8 垃圾回收机制）</h2> <p>V8 将内存空间一分为二，分为新生代和老生代。新生代主要存放一些周期性较短较小的对象（如函数执行时产生的局部变量），老生代主要存放一些周期性长，内存占用大的对象。</p> <h4 id="新生代回收原理"><a href="#新生代回收原理" class="header-anchor">#</a> 新生代回收原理</h4> <p>新生代的空间会被均匀分为两部分，分别是 from 和 to，程序运行时使用到的内存都是 from 中的，to 空间会处于待定状态。v8 会通过标记清除算法将所有的可达对象全部拷贝到 to 空间中，然后存在 from 中的都会被视为垃圾进行清除。然后 V8 会将 from 变为 to，而 to 变为 from。这样便完成了新生代的垃圾回收。</p> <p>补充：</p> <ul><li>拷贝对象需要花费较多的时间，所以新生代的内存一般比较小。</li> <li>由于新生代空间小，所以很有可能出现 from 空间超出的情况。对于这种情况，v8 会将那些经历了两次 GC 还存活下来的对象进行晋升，将它们放到老生代内存中。</li></ul> <h4 id="老生代回收原理"><a href="#老生代回收原理" class="header-anchor">#</a> 老生代回收原理</h4> <p>老生代的空间会通过标记清除进行垃圾回收，但如果老生代中的最大空闲内存不足以存放新生代中晋升的对象时，这是 v8 又会采用标记整理算法进行垃圾回收和空间整理。</p> <p>补充：</p> <ul><li>标记算法在标记时是会阻塞 JS 主线程代码运行的，v8 为此通过增量标记算法对其进行了优化。v8 并不会一次性标记完所有的对象，而是将标记操作分为了一个个的子任务，标记一点，执行一段 js 代码，再标记一点，再执行一点 js 代码。通过这种增量标记的方式，让标记操作不会长时间占用主线程。</li></ul></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blog/basics/char-history.html" class="prev">
+        字符发展史
+      </a></span> <span class="next"><a href="/blog/vue/template-to-dom-2.x.html">
+        从模版到视图原理（2.x）
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.6dcd6427.js" defer></script><script src="/blog/assets/js/2.19337781.js" defer></script><script src="/blog/assets/js/11.ad4ccb1d.js" defer></script>
+  </body>
+</html>
