@@ -40,6 +40,10 @@ export default defineConfig4CustomTheme({
             title: '字符发展史',
             path: '/basics/char-history.md',
           },
+          {
+            title: '垃圾回收机制',
+            path: '/basics/gc.md',
+          },
         ],
       },
 

@@ -8,6 +8,7 @@
   - [TypeScript](https://returnmaize.github.io/basics/typescript.html)
   - [深入理解 JS 中的对象](https://returnmaize.github.io/blog/basics/deeply-understand-the-obj.html)
   - [字符发展史](https://returnmaize.github.io/blog/basics/char-history.html)
+  - [垃圾回收机制](https://returnmaize.github.io/blog/basics/gc.html)
 
 - Vue 原理篇
 

@@ -8,6 +8,7 @@
   - [TypeScript](/basics/typescript.html)
   - [深入理解 JS 中的对象](/basics/deeply-understand-the-obj.html)
   - [字符发展史](/basics/char-history.html)
+  - [垃圾回收机制](/basics/gc.html)
 
 - Vue 原理篇
 
