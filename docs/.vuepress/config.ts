@@ -160,6 +160,11 @@ export default defineConfig4CustomTheme({
           },
         ],
       },
+
+      {
+        title: 'Node',
+        children: [{ title: 'node 基础', path: '/node/node-basics.md' }],
+      },
     ],
 
     logo: '/img/logo.png',
