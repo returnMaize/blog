@@ -44,6 +44,10 @@ export default defineConfig4CustomTheme({
             title: '垃圾回收机制',
             path: '/basics/gc.md',
           },
+          // {
+          //   title: '异步编程之 Promise 原理',
+          //   path: '/basics/promise.md',
+          // },
         ],
       },
 
@@ -113,6 +117,10 @@ export default defineConfig4CustomTheme({
               {
                 title: 'eslint + prettier',
                 path: '/engineering/eslint-prettier.md',
+              },
+              {
+                title: 'eslint自定义插件',
+                path: '/engineering/eslint-custom-plugin.md',
               },
             ],
           },
