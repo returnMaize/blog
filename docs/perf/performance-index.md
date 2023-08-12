@@ -40,19 +40,19 @@
 - TTFB 在 800ms 到 1800ms 之前为良好（需要改进）
 - TTFB 超过 1800md 那就比较差了
 
-![TTFB](/img/TTFB.jpg)
+![TTFB](/blog/img/TTFB.jpg)
 
 **FCP（First Contentful Paint 首次内容绘制）**
 
 页面从加载到页面上第一个内容渲染成功的时间
 
-![FCP](/img/FCP.jpg)
+![FCP](/blog/img/FCP.jpg)
 
 **LCP（Largest Contentful Paint 最大内容绘制）**
 
 页面从加载到主要内容渲染成功的时间
 
-![LCP](/img/LCP.jpg)
+![LCP](/blog/img/LCP.jpg)
 
 **[了解更多性能指标](https://web.dev/metrics/)**
 
@@ -66,7 +66,7 @@
 
 页面从加载到主要内容渲染成功的时间
 
-![LCP](/img/LCP.jpg)
+![LCP](/blog/img/LCP.jpg)
 
 **影响 LCP 的因素**
 
@@ -84,7 +84,7 @@
 
 用户首次和页面进行交互到浏览器真正处理用户行为的时间
 
-![FID](/img/FID.jpg)
+![FID](/blog/img/FID.jpg)
 
 **优化 FID 的方式**
 
@@ -94,7 +94,7 @@
 
 布局偏移一般都是由于图像视频类的资源加载导致的
 
-![CLS](/img/CLS.jpg)
+![CLS](/blog/img/CLS.jpg)
 
 **优化 CLS 的方式**
 
@@ -109,4 +109,4 @@
 
 **web vitals**
 
-![web vitals](/img/web-vitals.jpg)
+![web vitals](/blog/img/web-vitals.jpg)

@@ -59,7 +59,7 @@ function patchVnode(
 
 **updateChildren**
 
-![diff 算法](/img/diff.png)
+![diff 算法](/blog/img/diff.png)
 
 **diff 算法比对流程**
 
