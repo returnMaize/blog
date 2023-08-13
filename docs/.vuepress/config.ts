@@ -79,6 +79,10 @@ export default defineConfig4CustomTheme({
             path: '/vue/reactive-watch.md',
           },
           {
+            title: '事件原理（2.x）',
+            path: '/vue/event-2.x.md',
+          },
+          {
             title: '3.x vs 2.x',
             path: '/vue/2.x-to-3.x-optimize.md',
           },
