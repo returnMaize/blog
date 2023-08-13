@@ -177,6 +177,11 @@ export default defineConfig4CustomTheme({
         title: 'Node',
         children: [{ title: 'node 基础', path: '/node/node-basics.md' }],
       },
+
+      {
+        title: '算法',
+        children: [{ title: '包含 min 函数的栈', path: '/algorithm/stack.md' }],
+      },
     ],
 
     logo: '/img/logo.png',
