@@ -180,7 +180,10 @@ export default defineConfig4CustomTheme({
 
       {
         title: '算法',
-        children: [{ title: '包含 min 函数的栈', path: '/algorithm/stack.md' }],
+        children: [
+          { title: '包含 min 函数的栈', path: '/algorithm/stack.md' },
+          { title: '每日温度', path: '/algorithm/daily-temperature.md' },
+        ],
       },
     ],
 

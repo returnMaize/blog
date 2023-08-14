@@ -53,3 +53,4 @@
 
 - 算法
   - [包含 min 函数的栈](/algorithm/stack.md)
+  - [每日温度](/algorithm/daily-temperature.md)
