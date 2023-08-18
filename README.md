@@ -19,6 +19,7 @@
   - [响应式原理之计算属性（2.x）](https://returnmaize.github.io/blog/vue/reactive-computed.html)
   - [响应式原理之 watch（2.x）](https://returnmaize.github.io/blog/vue/reactive-watch.html)
   - [事件原理（2.x）](https://returnmaize.github.io/blog/vue/event-2.x.html)
+  - [路由原理](https://returnmaize.github.io/blog/vue/vue-router.html)
   - [3.x vs 2.x](https://returnmaize.github.io/blog/vue/2.x-to-3.x-optimize.html)
   - [组件渲染原理（3.x）](https://returnmaize.github.io/blog/vue/template-to-dom-3.x.html)
   - [响应式原理之组件更新（3.x）](https://returnmaize.github.io/blog/vue/reactive-component-update-3.x.html)

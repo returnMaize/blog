@@ -83,6 +83,10 @@ export default defineConfig4CustomTheme({
             path: '/vue/event-2.x.md',
           },
           {
+            title: '路由原理',
+            path: '/vue/vue-router.md',
+          },
+          {
             title: '3.x vs 2.x',
             path: '/vue/2.x-to-3.x-optimize.md',
           },
