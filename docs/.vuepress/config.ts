@@ -189,6 +189,14 @@ export default defineConfig4CustomTheme({
           { title: '每日温度', path: '/algorithm/daily-temperature.md' },
         ],
       },
+
+      {
+        title: 'go',
+        children: [
+          { title: '简介', path: '/go/introduction.md' },
+          { title: '基础语法', path: '/go/syntax.md' },
+        ],
+      },
     ],
 
     logo: '/img/logo.png',

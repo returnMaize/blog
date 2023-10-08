@@ -53,5 +53,10 @@
   - [node 基础](/node/node-basics.html)
 
 - 算法
+
   - [包含 min 函数的栈](/algorithm/stack.md)
   - [每日温度](/algorithm/daily-temperature.md)
+
+- go
+  - [简介](/go/introduction.md)
+  - [基础语法](/go/syntax.md)
