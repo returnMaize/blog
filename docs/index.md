@@ -10,6 +10,10 @@
   - [字符发展史](/basics/char-history.html)
   - [垃圾回收机制](/basics/gc.html)
 
+- 红宝书（第四版）
+
+  - [第一章：什么是 JavaScript](/RedTreasureBook/Chapter1.html)
+
 - Vue 原理篇
 
   - [从模版到视图原理（2.x）](/vue/template-to-dom-2.x.html)

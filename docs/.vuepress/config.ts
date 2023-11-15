@@ -50,6 +50,15 @@ export default defineConfig4CustomTheme({
           // },
         ],
       },
+      {
+        title: '红宝书（第四版）',
+        children: [
+          {
+            title: '第一章：什么是 JavaScript',
+            path: '/RedTreasureBook/Chapter1.md',
+          }
+        ],
+      },
 
       {
         title: 'Vue原理篇',

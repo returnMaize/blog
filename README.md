@@ -10,6 +10,10 @@
   - [字符发展史](https://returnmaize.github.io/blog/basics/char-history.html)
   - [垃圾回收机制](https://returnmaize.github.io/blog/basics/gc.html)
 
+- 红宝书（第四版）
+
+  - [第一章：什么是 JavaScript](https://returnmaize.github.io/blog/RedTreasureBook/Chapter1.html)
+
 - Vue 原理篇
 
   - [从模版到视图原理（2.x）](https://returnmaize.github.io/blog/vue/template-to-dom-2.x.html)
