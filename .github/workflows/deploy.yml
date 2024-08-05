@@ -17,7 +17,7 @@ jobs:
 
       - name: Install and Build
         run: |
-          npm i -g pnpm
+          npm i -g pnpm@5.10.0
           pnpm install --no-frozen-lockfile
           pnpm i
           pnpm docs:build
