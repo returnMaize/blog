@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>io标准库 | hx&#39;s blog</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    <link rel="icon" href="/blog/img/logo.png">
+    <meta name="description" content="hx&#39;s blog">
+    <meta name="keywords" content="blog">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.bd89e446.css" as="style"><link rel="preload" href="/blog/assets/js/app.17aef99c.js" as="script"><link rel="preload" href="/blog/assets/js/2.cb836bf6.js" as="script"><link rel="preload" href="/blog/assets/js/1.085f3e10.js" as="script"><link rel="preload" href="/blog/assets/js/57.1eb1c67e.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.132265ea.js"><link rel="prefetch" href="/blog/assets/js/100.87e266af.js"><link rel="prefetch" href="/blog/assets/js/101.336e1d71.js"><link rel="prefetch" href="/blog/assets/js/102.23c45a7d.js"><link rel="prefetch" href="/blog/assets/js/103.9ef43646.js"><link rel="prefetch" href="/blog/assets/js/104.226a1337.js"><link rel="prefetch" href="/blog/assets/js/105.2b1d886c.js"><link rel="prefetch" href="/blog/assets/js/106.06cec04a.js"><link rel="prefetch" href="/blog/assets/js/107.08ea5478.js"><link rel="prefetch" href="/blog/assets/js/108.d59d457d.js"><link rel="prefetch" href="/blog/assets/js/109.8f2e6072.js"><link rel="prefetch" href="/blog/assets/js/11.e2e1fd76.js"><link rel="prefetch" href="/blog/assets/js/110.e34fcad1.js"><link rel="prefetch" href="/blog/assets/js/111.840b7465.js"><link rel="prefetch" href="/blog/assets/js/112.493ca7af.js"><link rel="prefetch" href="/blog/assets/js/113.db891864.js"><link rel="prefetch" href="/blog/assets/js/114.b46d1481.js"><link rel="prefetch" href="/blog/assets/js/115.c48c2cf3.js"><link rel="prefetch" href="/blog/assets/js/116.c62a2f61.js"><link rel="prefetch" href="/blog/assets/js/117.8f7bf0ad.js"><link rel="prefetch" href="/blog/assets/js/118.65f726f0.js"><link rel="prefetch" href="/blog/assets/js/119.84355618.js"><link rel="prefetch" href="/blog/assets/js/12.96baac6c.js"><link rel="prefetch" href="/blog/assets/js/120.6d334245.js"><link rel="prefetch" href="/blog/assets/js/121.186ee6e8.js"><link rel="prefetch" href="/blog/assets/js/122.e98c1d5f.js"><link rel="prefetch" href="/blog/assets/js/123.89739157.js"><link rel="prefetch" href="/blog/assets/js/124.ad929e7c.js"><link rel="prefetch" href="/blog/assets/js/13.fbabcd1a.js"><link rel="prefetch" href="/blog/assets/js/14.ca9d2157.js"><link rel="prefetch" href="/blog/assets/js/15.b3cb30d2.js"><link rel="prefetch" href="/blog/assets/js/16.5023d750.js"><link rel="prefetch" href="/blog/assets/js/17.32813d1e.js"><link rel="prefetch" href="/blog/assets/js/18.5ff6a1ac.js"><link rel="prefetch" href="/blog/assets/js/19.aa6eb975.js"><link rel="prefetch" href="/blog/assets/js/20.910441bb.js"><link rel="prefetch" href="/blog/assets/js/21.463273f4.js"><link rel="prefetch" href="/blog/assets/js/22.41f6992a.js"><link rel="prefetch" href="/blog/assets/js/23.acb88560.js"><link rel="prefetch" href="/blog/assets/js/24.d919972d.js"><link rel="prefetch" href="/blog/assets/js/25.948301e9.js"><link rel="prefetch" href="/blog/assets/js/26.3df0024e.js"><link rel="prefetch" href="/blog/assets/js/27.08710af5.js"><link rel="prefetch" href="/blog/assets/js/28.002665e7.js"><link rel="prefetch" href="/blog/assets/js/29.fd12f9c0.js"><link rel="prefetch" href="/blog/assets/js/3.272f2022.js"><link rel="prefetch" href="/blog/assets/js/30.2c49756d.js"><link rel="prefetch" href="/blog/assets/js/31.c03c4098.js"><link rel="prefetch" href="/blog/assets/js/32.52e46944.js"><link rel="prefetch" href="/blog/assets/js/33.437d563c.js"><link rel="prefetch" href="/blog/assets/js/34.ba907a65.js"><link rel="prefetch" href="/blog/assets/js/35.3d6ecd51.js"><link rel="prefetch" href="/blog/assets/js/36.4dee6b56.js"><link rel="prefetch" href="/blog/assets/js/37.dc23dca3.js"><link rel="prefetch" href="/blog/assets/js/38.932834e6.js"><link rel="prefetch" href="/blog/assets/js/39.51ed60ff.js"><link rel="prefetch" href="/blog/assets/js/4.334133bf.js"><link rel="prefetch" href="/blog/assets/js/40.ce997613.js"><link rel="prefetch" href="/blog/assets/js/41.4c78ba89.js"><link rel="prefetch" href="/blog/assets/js/42.e30c862b.js"><link rel="prefetch" href="/blog/assets/js/43.9cd590d2.js"><link rel="prefetch" href="/blog/assets/js/44.f1f58583.js"><link rel="prefetch" href="/blog/assets/js/45.55cb9902.js"><link rel="prefetch" href="/blog/assets/js/46.6ce65e52.js"><link rel="prefetch" href="/blog/assets/js/47.0b921444.js"><link rel="prefetch" href="/blog/assets/js/48.a12fcac7.js"><link rel="prefetch" href="/blog/assets/js/49.c45d1ce2.js"><link rel="prefetch" href="/blog/assets/js/5.cd02e7c3.js"><link rel="prefetch" href="/blog/assets/js/50.6c9af9d5.js"><link rel="prefetch" href="/blog/assets/js/51.cc1f531f.js"><link rel="prefetch" href="/blog/assets/js/52.d730ce51.js"><link rel="prefetch" href="/blog/assets/js/53.ff3371f3.js"><link rel="prefetch" href="/blog/assets/js/54.312693e1.js"><link rel="prefetch" href="/blog/assets/js/55.6323f7a9.js"><link rel="prefetch" href="/blog/assets/js/56.fb3138c3.js"><link rel="prefetch" href="/blog/assets/js/58.8d274b37.js"><link rel="prefetch" href="/blog/assets/js/59.7bc03ba2.js"><link rel="prefetch" href="/blog/assets/js/6.e5fe1b30.js"><link rel="prefetch" href="/blog/assets/js/60.fabcb705.js"><link rel="prefetch" href="/blog/assets/js/61.526013ca.js"><link rel="prefetch" href="/blog/assets/js/62.26d018f0.js"><link rel="prefetch" href="/blog/assets/js/63.db1ffe1f.js"><link rel="prefetch" href="/blog/assets/js/64.d0ab1f5a.js"><link rel="prefetch" href="/blog/assets/js/65.0555c9a5.js"><link rel="prefetch" href="/blog/assets/js/66.dc45ca7a.js"><link rel="prefetch" href="/blog/assets/js/67.fd136b72.js"><link rel="prefetch" href="/blog/assets/js/68.3c2a726f.js"><link rel="prefetch" href="/blog/assets/js/69.09eb9f27.js"><link rel="prefetch" href="/blog/assets/js/7.a113ee55.js"><link rel="prefetch" href="/blog/assets/js/70.b01d7c4a.js"><link rel="prefetch" href="/blog/assets/js/71.46a9b726.js"><link rel="prefetch" href="/blog/assets/js/72.711192ac.js"><link rel="prefetch" href="/blog/assets/js/73.bfd617cb.js"><link rel="prefetch" href="/blog/assets/js/74.0a3e4d92.js"><link rel="prefetch" href="/blog/assets/js/75.2189e9e9.js"><link rel="prefetch" href="/blog/assets/js/76.75fd4c5a.js"><link rel="prefetch" href="/blog/assets/js/77.ad54a3d9.js"><link rel="prefetch" href="/blog/assets/js/78.0b149934.js"><link rel="prefetch" href="/blog/assets/js/79.e2818b62.js"><link rel="prefetch" href="/blog/assets/js/80.d471139e.js"><link rel="prefetch" href="/blog/assets/js/81.2c8b4887.js"><link rel="prefetch" href="/blog/assets/js/82.3f6e54df.js"><link rel="prefetch" href="/blog/assets/js/83.fc352eb5.js"><link rel="prefetch" href="/blog/assets/js/84.01784d87.js"><link rel="prefetch" href="/blog/assets/js/85.933c1326.js"><link rel="prefetch" href="/blog/assets/js/86.5fc5355d.js"><link rel="prefetch" href="/blog/assets/js/87.834b44f5.js"><link rel="prefetch" href="/blog/assets/js/88.c63cb84e.js"><link rel="prefetch" href="/blog/assets/js/89.41ce46ef.js"><link rel="prefetch" href="/blog/assets/js/90.2af565e9.js"><link rel="prefetch" href="/blog/assets/js/91.34c21365.js"><link rel="prefetch" href="/blog/assets/js/92.dfd4daa9.js"><link rel="prefetch" href="/blog/assets/js/93.419e354f.js"><link rel="prefetch" href="/blog/assets/js/94.b89c5d96.js"><link rel="prefetch" href="/blog/assets/js/95.0ac99a30.js"><link rel="prefetch" href="/blog/assets/js/96.5f057ab1.js"><link rel="prefetch" href="/blog/assets/js/97.cde62186.js"><link rel="prefetch" href="/blog/assets/js/98.65d1a4a1.js"><link rel="prefetch" href="/blog/assets/js/99.3a369f28.js"><link rel="prefetch" href="/blog/assets/js/vendors~docsearch.9268c32e.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.bd89e446.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><img src="/blog/img/logo.png" alt="hx's blog" class="logo"> <span class="site-name can-hide">hx's blog</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"> <a href="https://github.com/returnMaize/blog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"> <a href="https://github.com/returnMaize/blog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>基础篇</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>红宝书（第四版）</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue原理篇</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>工程化篇</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>性能优化篇</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Node</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>算法</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>go</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/go-study/basic-syntax/1.基础.html" class="sidebar-link">基础</a></li><li><a href="/blog/go-study/basic-syntax/2.变量.html" class="sidebar-link">变量</a></li><li><a href="/blog/go-study/basic-syntax/3.基础类型.html" class="sidebar-link">基础类型</a></li><li><a href="/blog/go-study/basic-syntax/4.指针-类型转换.html" class="sidebar-link">指针-类型转换</a></li><li><a href="/blog/go-study/basic-syntax/5.复杂数据类型.html" class="sidebar-link">复杂数据类型</a></li><li><a href="/blog/go-study/basic-syntax/6.语句.html" class="sidebar-link">语句</a></li><li><a href="/blog/go-study/basic-syntax/7.函数-defer-错误.html" class="sidebar-link">函数-defer-错误</a></li><li><a href="/blog/go-study/basic-syntax/8.结构体.html" class="sidebar-link">结构体</a></li><li><a href="/blog/go-study/basic-syntax/9.接口-IO.html" class="sidebar-link">接口-IO</a></li><li><a href="/blog/go-study/basic-syntax/10.包.html" class="sidebar-link">包</a></li><li><a href="/blog/go-study/basic-syntax/11.并发-管道-锁.html" class="sidebar-link">并发-管道-锁</a></li><li><a href="/blog/go-study/basic-syntax/12.网络.html" class="sidebar-link">网络</a></li><li><a href="/blog/go-study/basic-syntax/13.mysql-redis.html" class="sidebar-link">mysql-redis</a></li><li><a href="/blog/go-study/basic-lib/01-fmt标准库/01.html" class="sidebar-link">fmt标准库</a></li><li><a href="/blog/go-study/basic-lib/02-os标准库/02.html" class="sidebar-link">os标准库</a></li><li><a href="/blog/go-study/basic-lib/03-time标准库/03.html" class="sidebar-link">time标准库</a></li><li><a href="/blog/go-study/basic-lib/04-log标准库/04.html" class="sidebar-link">log标准库</a></li><li><a href="/blog/go-study/basic-lib/05-errors标准库/05.html" class="sidebar-link">errors标准库</a></li><li><a href="/blog/go-study/basic-lib/06-bytes标准库/06.html" class="sidebar-link">bytes标准库</a></li><li><a href="/blog/go-study/basic-lib/07-io标准库/07.html" class="active sidebar-link">io标准库</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/go-study/basic-lib/07-io标准库/07.html#_1-错误变量" class="sidebar-link">1. 错误变量</a></li><li class="sidebar-sub-header"><a href="/blog/go-study/basic-lib/07-io标准库/07.html#_2-基础接口" class="sidebar-link">2. 基础接口</a></li><li class="sidebar-sub-header"><a href="/blog/go-study/basic-lib/07-io标准库/07.html#_3-组合接口" class="sidebar-link">3. 组合接口</a></li><li class="sidebar-sub-header"><a href="/blog/go-study/basic-lib/07-io标准库/07.html#_4-指定读写器读写接口" class="sidebar-link">4. 指定读写器读写接口</a></li><li class="sidebar-sub-header"><a href="/blog/go-study/basic-lib/07-io标准库/07.html#_5-指定偏移量读写接口" class="sidebar-link">5. 指定偏移量读写接口</a></li><li class="sidebar-sub-header"><a href="/blog/go-study/basic-lib/07-io标准库/07.html#_6-单个字节读写接口" class="sidebar-link">6. 单个字节读写接口</a></li><li class="sidebar-sub-header"><a href="/blog/go-study/basic-lib/07-io标准库/07.html#_7-结构体" class="sidebar-link">7. 结构体</a></li><li class="sidebar-sub-header"><a href="/blog/go-study/basic-lib/07-io标准库/07.html#_8-供外部调用的函数" class="sidebar-link">8. 供外部调用的函数</a></li></ul></li><li><a href="/blog/go-study/basic-lib/08-ioutil标准库/08.html" class="sidebar-link">ioutil标准库</a></li><li><a href="/blog/go-study/basic-lib/09-bufio标准库/09.html" class="sidebar-link">bufio标准库</a></li><li><a href="/blog/go-study/basic-lib/10-builtin标准库/10.html" class="sidebar-link">builtin标准库</a></li><li><a href="/blog/go-study/basic-lib/11-json标准库/11.html" class="sidebar-link">json标准库</a></li><li><a href="/blog/go-study/basic-lib/12-sort标准库/12.html" class="sidebar-link">sort标准库</a></li><li><a href="/blog/go-study/basic-lib/13-math标准库/13.html" class="sidebar-link">math标准库</a></li><li><a href="/blog/go-study/basic-lib/14-flag标准库/14.html" class="sidebar-link">flag标准库</a></li><li><a href="/blog/go-study/basic-lib/15-runtime标准库/15.html" class="sidebar-link">runtime标准库</a></li><li><a href="/blog/go-study/basic-lib/16-context标准库/16.html" class="sidebar-link">context标准库</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="io标准库"><a href="#io标准库" class="header-anchor">#</a> io标准库</h1> <p>io包中提供I/O原始操作的一系列接口。它主要包装了一些已有的实现，如 os 包中的那些，并将这些抽象成为实用性的功能和一些其他相关的接口。</p> <h2 id="_1-错误变量"><a href="#_1-错误变量" class="header-anchor">#</a> 1. 错误变量</h2> <ul><li><p><code>var EOF = errors.New(“EOF”)</code>
+正常输入结束Read返回EOF，如果在一个结构化数据流中EOF在不期望的位置出现了，则应返回错误ErrUnexpectedEOF或者其它给出更多细节的错误。</p></li> <li><p><code>var ErrClosedPipe = errors.New(“io: read/write on closed pipe”)</code>
+当从一个已关闭的Pipe读取或者写入时，会返回ErrClosedPipe。</p></li> <li><p><code>var ErrNoProgress = errors.New(“multiple Read calls return no data or error”)</code>
+某些使用io.Reader接口的客户端如果多次调用Read都不返回数据也不返回错误时，就会返回本错误，一般来说是io.Reader的实现有问题的标志。</p></li> <li><p><code>var ErrShortBuffer = errors.New(“short buffer”)</code>
+ErrShortBuffer表示读取操作需要大缓冲，但提供的缓冲不够大。</p></li> <li><p><code>var ErrShortWrite = errors.New(“short write”)</code>
+ErrShortWrite表示写入操作写入的数据比提供的少，却没有显式的返回错误。</p></li> <li><p><code>var ErrUnexpectedEOF = errors.New(“unexpected EOF”)</code>
+ErrUnexpectedEOF表示在读取一个固定尺寸的块或者数据结构时，在读取未完全时遇到了EOF。</p></li></ul> <h2 id="_2-基础接口"><a href="#_2-基础接口" class="header-anchor">#</a> 2. 基础接口</h2> <h3 id="_2-1-reader接口"><a href="#_2-1-reader接口" class="header-anchor">#</a> 2.1 Reader接口</h3> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">type</span> Reader <span class="token keyword">interface</span> <span class="token punctuation">{</span>
+	<span class="token function">Read</span><span class="token punctuation">(</span>p <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">byte</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>n <span class="token builtin">int</span><span class="token punctuation">,</span> err <span class="token builtin">error</span><span class="token punctuation">)</span>	
+<span class="token punctuation">}</span>
+</code></pre></div><p>Read 将 len个字节读取到 p 中。它返回读取的字节数 n（0 &lt;= n &lt;= len）以及任何遇到的错误。即使 Read 返回的 n &lt; len，它也会在调用过程中使用 p的全部作为暂存空间。若一些数据可用但不到 len 个字节，Read 会照例返回可用的东西，而不是等待更多。</p> <p>当 Read 在成功读取 n &gt; 0 个字节后遇到一个错误或 EOF 情况，它就会返回读取的字节数。它会从相同的调用中返回（非nil的）错误或从随后的调用中返回错误（和 n == 0）。这种一般情况的一个例子就是 Reader 在输入流结束时会返回一个非零的字节数，可能的返回不是 err == EOF 就是 err == nil。无论如何，下一个 Read 都应当返回 0, EOF。</p> <p>调用者应当总在考虑到错误 err 前处理 n &gt; 0 的字节。这样做可以在读取一些字节，以及允许的 EOF 行为后正确地处理I/O错误。</p> <p>Read 的实现会阻止返回零字节的计数和一个 nil 错误，调用者应将这种情况视作空操作。</p> <p>实例演示：</p> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token punctuation">(</span>
+	<span class="token string">&quot;fmt&quot;</span>
+	<span class="token string">&quot;io&quot;</span>
+	<span class="token string">&quot;os&quot;</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	f<span class="token punctuation">,</span> err <span class="token operator">:=</span> os<span class="token punctuation">.</span><span class="token function">Open</span><span class="token punctuation">(</span><span class="token string">&quot;a.txt&quot;</span><span class="token punctuation">)</span>
+	<span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+		fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">&quot;err: %v\n&quot;</span><span class="token punctuation">,</span> err<span class="token punctuation">)</span>
+		<span class="token keyword">return</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">defer</span> f<span class="token punctuation">.</span><span class="token function">Close</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+	buf <span class="token operator">:=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">byte</span><span class="token punctuation">,</span> <span class="token number">12</span><span class="token punctuation">)</span> <span class="token comment">// 实例化一个长度为4的[]byte</span>
+
+	<span class="token keyword">for</span> <span class="token punctuation">{</span>
+		n<span class="token punctuation">,</span> err2 <span class="token operator">:=</span> f<span class="token punctuation">.</span><span class="token function">Read</span><span class="token punctuation">(</span>buf<span class="token punctuation">)</span> <span class="token comment">// 将内容读至buf</span>
+		<span class="token keyword">if</span> n <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">||</span> err2 <span class="token operator">==</span> io<span class="token punctuation">.</span>EOF <span class="token punctuation">{</span>
+			fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">&quot;文件以读取完毕&quot;</span><span class="token punctuation">)</span>
+			<span class="token keyword">break</span>
+		<span class="token punctuation">}</span>
+		fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token function">string</span><span class="token punctuation">(</span>buf<span class="token punctuation">[</span><span class="token punctuation">:</span>n<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre></div><p>其中a.txt内容为：</p> <div class="language-txt extra-class"><pre class="language-txt"><code> hello world
+</code></pre></div><h3 id="_2-2-writer接口"><a href="#_2-2-writer接口" class="header-anchor">#</a> 2.2 Writer接口</h3> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">type</span> Writerinterface <span class="token punctuation">{</span>
+	<span class="token function">Write</span><span class="token punctuation">(</span>p <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">byte</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>n <span class="token builtin">int</span><span class="token punctuation">,</span> err <span class="token builtin">error</span><span class="token punctuation">)</span>	
+<span class="token punctuation">}</span>
+</code></pre></div><p>Write 将 len个字节从 p 中写入到基本数据流中。它返回从 p 中被写入的字节数n（0 &lt;= n &lt;= len）以及任何遇到的引起写入提前停止的错误。若 Write 返回的n &lt; len，它就必须返回一个非nil的错误。Write 不能修改此切片的数据，即便它是临时的。</p> <p>实例演示：</p> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token punctuation">(</span>
+	<span class="token string">&quot;os&quot;</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	f<span class="token punctuation">,</span> <span class="token boolean">_</span> <span class="token operator">:=</span> os<span class="token punctuation">.</span><span class="token function">OpenFile</span><span class="token punctuation">(</span><span class="token string">&quot;a.txt&quot;</span><span class="token punctuation">,</span> os<span class="token punctuation">.</span>O_RDWR<span class="token operator">|</span>os<span class="token punctuation">.</span>O_APPEND<span class="token punctuation">,</span> <span class="token number">0775</span><span class="token punctuation">)</span> <span class="token comment">// 以读写模式打开文件，并且在写操作时将数据附加到文件尾部</span>
+	f<span class="token punctuation">.</span><span class="token function">Write</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token function">byte</span><span class="token punctuation">(</span><span class="token string">&quot; hello golang&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+	f<span class="token punctuation">.</span><span class="token function">Close</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>a.txt内容更新为：</p> <div class="language-txt extra-class"><pre class="language-txt"><code> hello world hello golang
+</code></pre></div><p>其中a.txt初始内容为：</p> <div class="language-txt extra-class"><pre class="language-txt"><code> hello world
+</code></pre></div><h3 id="_2-3-seeker接口"><a href="#_2-3-seeker接口" class="header-anchor">#</a> 2.3 Seeker接口</h3> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">type</span> Seeker <span class="token keyword">interface</span> <span class="token punctuation">{</span>
+    <span class="token function">Seek</span><span class="token punctuation">(</span>offset <span class="token builtin">int64</span><span class="token punctuation">,</span> whence <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token builtin">int64</span><span class="token punctuation">,</span> <span class="token builtin">error</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>Seeker 用来移动数据的读写指针</p> <p>Seek 设置下一次读写操作的指针位置，每次的读写操作都是从指针位置开始的</p> <ul><li><p>whence 的含义：</p> <ul><li>如果 whence 为 0：表示从数据的开头开始移动指针</li> <li>如果 whence 为 1：表示从数据的当前指针位置开始移动指针</li> <li>如果 whence 为 2：表示从数据的尾部开始移动指针</li></ul></li> <li><p>offset 是指针移动的偏移量</p> <p>返回移动后的指针位置和移动过程中遇到的任何错误</p></li></ul> <p>实例演示：</p> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token punctuation">(</span>
+	<span class="token string">&quot;fmt&quot;</span>
+	<span class="token string">&quot;os&quot;</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	f<span class="token punctuation">,</span> <span class="token boolean">_</span> <span class="token operator">:=</span> os<span class="token punctuation">.</span><span class="token function">Open</span><span class="token punctuation">(</span><span class="token string">&quot;a.txt&quot;</span><span class="token punctuation">)</span> <span class="token comment">// 打开文件后，光标默认在文件开头</span>
+	f<span class="token punctuation">.</span><span class="token function">Seek</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>             <span class="token comment">// 从索引值为3处开始读</span>
+	buf <span class="token operator">:=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">byte</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span>  <span class="token comment">// 设置缓冲区</span>
+	n<span class="token punctuation">,</span> <span class="token boolean">_</span> <span class="token operator">:=</span> f<span class="token punctuation">.</span><span class="token function">Read</span><span class="token punctuation">(</span>buf<span class="token punctuation">)</span>      <span class="token comment">// 将内容读到缓冲区内</span>
+	fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">&quot;n: %v\n&quot;</span><span class="token punctuation">,</span> n<span class="token punctuation">)</span>
+	fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">&quot;string(buf): %v\n&quot;</span><span class="token punctuation">,</span> <span class="token function">string</span><span class="token punctuation">(</span>buf<span class="token punctuation">)</span><span class="token punctuation">)</span>
+	f<span class="token punctuation">.</span><span class="token function">Close</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>其中a.txt内容为：</p> <div class="language-txt extra-class"><pre class="language-txt"><code> hello world
+</code></pre></div><h3 id="_2-4-closer接口"><a href="#_2-4-closer接口" class="header-anchor">#</a> 2.4 Closer接口</h3> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">type</span> Closer <span class="token keyword">interface</span> <span class="token punctuation">{</span>
+	<span class="token function">Close</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token builtin">error</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>Closer关闭的接口, 带有Close() 方法， 但是行为没有定义，所以 可以特定行为来实现
+在整个标准库内都没有对Closer的引用，只有实现，用法都是开启某某连接/流，在用完/报错后在进行Close的操作。</p> <h2 id="_3-组合接口"><a href="#_3-组合接口" class="header-anchor">#</a> 3. 组合接口</h2> <p>组合接口是对多个接口进行了组合，当同时实现多个接口时，可以使用组合接口进行传递</p> <h3 id="_3-1-readwriter接口"><a href="#_3-1-readwriter接口" class="header-anchor">#</a> 3.1 ReadWriter接口</h3> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">type</span> ReadWriter <span class="token keyword">interface</span> <span class="token punctuation">{</span>
+	Reader
+	Writer
+<span class="token punctuation">}</span>
+</code></pre></div><p>ReadWriter接口聚合了基本的读写操作。</p> <h3 id="_3-2-readcloser接口"><a href="#_3-2-readcloser接口" class="header-anchor">#</a> 3.2 ReadCloser接口</h3> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">type</span> ReadCloser <span class="token keyword">interface</span> <span class="token punctuation">{</span>
+	Reader
+	Closer
+<span class="token punctuation">}</span>
+</code></pre></div><p>ReadCloser就是Reader+Closer，例如在ioutil中的NopCloser方法返回的就是一个ReadCloser，但是里面的Close就是个空函数，毫无作用。</p> <h3 id="_3-3-writecloser接口"><a href="#_3-3-writecloser接口" class="header-anchor">#</a> 3.3 WriteCloser接口</h3> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">type</span> WriteCloser <span class="token keyword">interface</span> <span class="token punctuation">{</span>
+	Writer
+	Closer
+<span class="token punctuation">}</span>
+</code></pre></div><p>WriteCloser接口聚合了基本的写入和关闭操作。</p> <h3 id="_3-4-readwritecloser接口"><a href="#_3-4-readwritecloser接口" class="header-anchor">#</a> 3.4 ReadWriteCloser接口</h3> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">type</span> ReadWriteCloser <span class="token keyword">interface</span> <span class="token punctuation">{</span>
+	Reader
+	Writer
+	Closer
+<span class="token punctuation">}</span>
+</code></pre></div><p>ReadWriteCloser接口聚合了基本的读写和关闭操作。</p> <h3 id="_3-5-readseeker接口"><a href="#_3-5-readseeker接口" class="header-anchor">#</a> 3.5 ReadSeeker接口</h3> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">type</span> ReadSeeker <span class="token keyword">interface</span> <span class="token punctuation">{</span>
+	Reader
+	Seeker
+<span class="token punctuation">}</span>
+</code></pre></div><p>ReadSeeker接口聚合了基本的读取和移位操作。</p> <h3 id="_3-6-writeseeker接口"><a href="#_3-6-writeseeker接口" class="header-anchor">#</a> 3.6 WriteSeeker接口</h3> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">type</span> WriteSeeker <span class="token keyword">interface</span> <span class="token punctuation">{</span>
+	Writer
+	Seeker
+<span class="token punctuation">}</span>
+</code></pre></div><p>WriteSeeker接口聚合了基本的写入和移位操作。</p> <h3 id="_3-7-readwriteseeker接口"><a href="#_3-7-readwriteseeker接口" class="header-anchor">#</a> 3.7 ReadWriteSeeker接口</h3> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">type</span> ReadWriteSeeker <span class="token keyword">interface</span> <span class="token punctuation">{</span>
+	Reader
+	Writer
+	Seeker
+<span class="token punctuation">}</span>
+</code></pre></div><p>ReadWriteSeeker接口聚合了基本的读写和移位操作</p> <h2 id="_4-指定读写器读写接口"><a href="#_4-指定读写器读写接口" class="header-anchor">#</a> 4. 指定读写器读写接口</h2> <h3 id="_4-1-readerfrom接口"><a href="#_4-1-readerfrom接口" class="header-anchor">#</a> 4.1 ReaderFrom接口</h3> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">type</span> ReaderFrom <span class="token keyword">interface</span> <span class="token punctuation">{</span>
+	<span class="token function">ReadFrom</span><span class="token punctuation">(</span>r Reader<span class="token punctuation">)</span> <span class="token punctuation">(</span>n <span class="token builtin">int64</span><span class="token punctuation">,</span> err <span class="token builtin">error</span><span class="token punctuation">)</span>		
+<span class="token punctuation">}</span>
+</code></pre></div><p>ReadFrom 从 r 中读取数据到对象的数据流中
+直到 r 返回 EOF 或 r 出现读取错误为止
+返回值 n 是读取的字节数
+返回值 err 就是 r 的返回值 err</p> <h3 id="_4-2-writerto接口"><a href="#_4-2-writerto接口" class="header-anchor">#</a> 4.2 WriterTo接口</h3> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">type</span> WriterTo <span class="token keyword">interface</span> <span class="token punctuation">{</span>
+	<span class="token function">WriteTo</span><span class="token punctuation">(</span>w Writer<span class="token punctuation">)</span> <span class="token punctuation">(</span>n <span class="token builtin">int64</span><span class="token punctuation">,</span> err <span class="token builtin">error</span><span class="token punctuation">)</span>		
+<span class="token punctuation">}</span>
+</code></pre></div><p>WriterTo 将对象的数据流写入到 w 中
+直到对象的数据流全部写入完毕或遇到写入错误为止
+返回值 n 是写入的字节数
+返回值 err 就是 w 的返回值 err</p> <h2 id="_5-指定偏移量读写接口"><a href="#_5-指定偏移量读写接口" class="header-anchor">#</a> 5. 指定偏移量读写接口</h2> <h3 id="_5-1-readerat接口"><a href="#_5-1-readerat接口" class="header-anchor">#</a> 5.1 ReaderAt接口</h3> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">type</span> ReaderAt <span class="token keyword">interface</span> <span class="token punctuation">{</span>
+    <span class="token function">ReadAt</span><span class="token punctuation">(</span>p <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">byte</span><span class="token punctuation">,</span> off <span class="token builtin">int64</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>n <span class="token builtin">int</span><span class="token punctuation">,</span> err <span class="token builtin">error</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>ReadAt 从对象数据流的 off 处读出数据到 p 中</p> <ul><li>忽略数据的读写指针，从数据的起始位置偏移 off 处开始读取</li> <li>如果对象的数据流只有部分可用，不足以填满 p则 ReadAt 将等待所有数据可用之后，继续向 p 中写入直到将 p 填满后再返回，在这点上 ReadAt 要比 Read 更严格</li> <li>返回读取的字节数 n 和读取时遇到的错误</li> <li>如果 n &lt; len，则需要返回一个 err 值来说明为什么没有将 p 填满（比如 EOF）</li> <li>如果 n &gt; len，而且对象的数据没有全部读完，则err 将返回 nil</li> <li>如果 n = len，而且对象的数据刚好全部读完，则err 将返回 EOF 或者 nil（不确定）</li></ul> <h3 id="_5-2-writerat接口"><a href="#_5-2-writerat接口" class="header-anchor">#</a> 5.2 WriterAt接口</h3> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">type</span> WriterAt <span class="token keyword">interface</span> <span class="token punctuation">{</span>
+    <span class="token function">WriteAt</span><span class="token punctuation">(</span>p <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">byte</span><span class="token punctuation">,</span> off <span class="token builtin">int64</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>n <span class="token builtin">int</span><span class="token punctuation">,</span> err <span class="token builtin">error</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>WriteAt 将 p 中的数据写入到对象数据流的 off 处</p> <ul><li>忽略数据的读写指针，从数据的起始位置偏移 off 处开始写入</li> <li>返回写入的字节数和写入时遇到的错误</li> <li>如果 n &lt; len，则必须返回一个 err 值来说明为什么没有将 p 完全写入</li></ul> <h2 id="_6-单个字节读写接口"><a href="#_6-单个字节读写接口" class="header-anchor">#</a> 6. 单个字节读写接口</h2> <h3 id="_6-1-bytereader接口"><a href="#_6-1-bytereader接口" class="header-anchor">#</a> 6.1 ByteReader接口</h3> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">type</span> ByteReader <span class="token keyword">interface</span> <span class="token punctuation">{</span>
+	<span class="token function">ReadByte</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token builtin">byte</span><span class="token punctuation">,</span> <span class="token builtin">error</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>ByteReader是基本的ReadByte方法的包装。
+ReadByte读取输入中的单个字节并返回。如果没有字节可读取，会返回错误。</p> <h3 id="_6-2-bytescanner接口"><a href="#_6-2-bytescanner接口" class="header-anchor">#</a> 6.2 ByteScanner接口</h3> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">type</span> ByteScanner <span class="token keyword">interface</span> <span class="token punctuation">{</span>
+    ByteReader
+    <span class="token function">UnreadByte</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token builtin">error</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>ByteScanner接口在基本的ReadByte方法之外还添加了UnreadByte方法。</p> <p>UnreadByte方法让下一次调用ReadByte时返回之前调用ReadByte时返回的同一个字节。连续调用两次UnreadByte方法而中间没有调用ReadByte时，可能会导致错误。</p> <h3 id="_6-3-bytewriter接口"><a href="#_6-3-bytewriter接口" class="header-anchor">#</a> 6.3 ByteWriter接口</h3> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">type</span> ByteWriter <span class="token keyword">interface</span> <span class="token punctuation">{</span>
+	<span class="token function">WriteByte</span><span class="token punctuation">(</span>c <span class="token builtin">byte</span><span class="token punctuation">)</span> <span class="token builtin">error</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>包装 WriteByte 单个字节写入方法的接口</p> <h3 id="_6-4-runereader接口"><a href="#_6-4-runereader接口" class="header-anchor">#</a> 6.4 RuneReader接口</h3> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">type</span> RuneReader <span class="token keyword">interface</span> <span class="token punctuation">{</span>
+	<span class="token function">ReadRune</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>r <span class="token builtin">rune</span><span class="token punctuation">,</span> size <span class="token builtin">int</span><span class="token punctuation">,</span> err <span class="token builtin">error</span><span class="token punctuation">)</span>	
+<span class="token punctuation">}</span>
+</code></pre></div><p>ReadRune 方法的包装，读取单个UTF-8编码的Unicode字符，并返回rune及其字节大小。如果没有可用字符，将设置err</p> <h3 id="_6-5-runescanner接口"><a href="#_6-5-runescanner接口" class="header-anchor">#</a> 6.5 RuneScanner接口</h3> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">type</span> RuneScanner <span class="token keyword">interface</span> <span class="token punctuation">{</span>
+	RuneReader
+	<span class="token function">UnreadRune</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token builtin">error</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>RuneScanner接口在基本的ReadRune方法之外还添加了UnreadRune方法。</p> <p>UnreadRune方法让下一次调用ReadRune时返回之前调用ReadRune时返回的同一个utf-8字符。连续调用两次UnreadRune方法而中间没有调用ReadRune时，可能会导致错误。</p> <h3 id="_6-6-stringwriter接口"><a href="#_6-6-stringwriter接口" class="header-anchor">#</a> 6.6 StringWriter接口</h3> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">type</span> StringWriter <span class="token keyword">interface</span> <span class="token punctuation">{</span>
+	<span class="token function">WriteString</span><span class="token punctuation">(</span>s <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>n <span class="token builtin">int</span><span class="token punctuation">,</span> err <span class="token builtin">error</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>字符串写入方法WriteString的包装</p> <h2 id="_7-结构体"><a href="#_7-结构体" class="header-anchor">#</a> 7. 结构体</h2> <h3 id="_7-1-limitedreader"><a href="#_7-1-limitedreader" class="header-anchor">#</a> 7.1 LimitedReader</h3> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">type</span> LimitedReader <span class="token keyword">struct</span> <span class="token punctuation">{</span>
+    R   Reader <span class="token comment">// underlying reader</span>
+    N   <span class="token builtin">int64</span>  <span class="token comment">// max bytes remaining</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>LimitedReader从R读取，但将返回的数据量限制为N个字节。每次读取更新N以标记剩余可以读取的字节数。Read在N&lt;=0时或基础R返回EOF时返回EOF。</p> <p>具体实现方法为：<code>func LimitReader(r Reader, n int64) Reader</code></p> <h3 id="_7-2-pipereader"><a href="#_7-2-pipereader" class="header-anchor">#</a> 7.2 PipeReader</h3> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">type</span> PipeReader <span class="token keyword">struct</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 内含隐藏或非导出字段</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>PipeReader是一个管道的读取端。</p> <p>具体实现方法有：</p> <ol><li><code>func (r *PipeReader) Read(data []byte) (n int, err error)</code>
+Read实现了标准的读取接口：它从管道中读取数据，阻塞直到写入端到达或写入端被关闭。如果用错误关闭写入端，则返回错误为ERR；否则ERR为EOF。</li> <li><code>func (r *PipeReader) Close() error</code>
+Close关闭读取器；关闭后如果对管道的写入端进行写入操作，就会返回(0, ErrClosedPip)。</li> <li><code>func (r *PipeReader) CloseWithError(err error) error</code>
+CloseWithError类似Close方法，但将调用Write时返回的错误改为err。</li></ol> <h3 id="_7-3-pipewriter"><a href="#_7-3-pipewriter" class="header-anchor">#</a> 7.3 PipeWriter</h3> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">type</span> PipeWriter <span class="token keyword">struct</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 内含隐藏或非导出字段</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>PipeWriter是一个管道的写入端。
+具体实现方法有：</p> <ol><li><code>func (w *PipeWriter) Write(data []byte) (n int, err error)</code>
+Write实现了标准的写接口：它将数据写入管道，直到一个或多个读取端消耗完所有数据或读取端关闭为止。如果以错误关闭读取端，则该错误将作为ERR返回；否则ERR将为ErrClosedPipe。</li> <li><code>func (w *PipeWriter) Close() error</code>
+Close关闭写入器；关闭后如果对管道的读取端进行读取操作，就会返回(0, EOF)。</li> <li><code>func (w *PipeWriter) CloseWithError(err error) error</code>
+CloseWithError类似Close方法，但将调用Read时返回的错误改为err。</li></ol> <blockquote><p>注：以上两个结构体PipeWriter与PipeReader是结合使用的需要用Pipe()方法进行创建。</p></blockquote> <h3 id="_7-4-sectionreader"><a href="#_7-4-sectionreader" class="header-anchor">#</a> 7.4 SectionReader</h3> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">type</span> SectionReader <span class="token keyword">struct</span> <span class="token punctuation">{</span>
+    <span class="token comment">// contains filtered or unexported fields</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>SectionReader在ReaderAt的基础上实现了Read，Seek和ReadAt。
+具体实现方法有：</p> <ol><li><code>func NewSectionReader(r ReaderAt, off int64, n int64) *SectionReader</code>
+结构体SectionReader的创建方法
+NewSectionReader返回一个SectionReader，它从r开始读取，偏移量为off，并在n个字节后以EOF停止。</li> <li><code>func (s *SectionReader) Read(p []byte) (n int, err error)</code>
+实现了接口Reader的Read方法</li> <li><code>func (s *SectionReader) ReadAt(p []byte, off int64) (n int, err error)</code>
+实现了接口ReaderAt的ReadAt方法</li> <li><code>func (s *SectionReader) Seek(offset int64, whence int) (int64, error)</code>
+实现了接口Seeker的Seek方法
+func (*SectionReader) Size</li> <li><code>func (s *SectionReader) Size() int64</code>
+Size返回以字节为单位的片段大小。</li></ol> <h2 id="_8-供外部调用的函数"><a href="#_8-供外部调用的函数" class="header-anchor">#</a> 8. 供外部调用的函数</h2> <h3 id="_8-1-copy"><a href="#_8-1-copy" class="header-anchor">#</a> 8.1 Copy</h3> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">func</span> <span class="token function">Copy</span><span class="token punctuation">(</span>dst Writer<span class="token punctuation">,</span> src Reader<span class="token punctuation">)</span> <span class="token punctuation">(</span>written <span class="token builtin">int64</span><span class="token punctuation">,</span> err <span class="token builtin">error</span><span class="token punctuation">)</span>
+</code></pre></div><p>将副本从src复制到dst，直到在src上达到EOF或发生错误。它返回复制的字节数和复制时遇到的第一个错误（如果有）。 成功的复制将返回err == nil而不是err == EOF。因为复制被定义为从src读取直到EOF，所以它不会将读取的EOF视为要报告的错误。 如果src实现WriterTo接口，则通过调用src.WriteTo（dst）实现该副本。否则，如果dst实现了ReaderFrom接口，则通过调用dst.ReadFrom（src）实现该副本。</p> <p>官方示例：</p> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token punctuation">(</span>
+	<span class="token string">&quot;io&quot;</span>
+	<span class="token string">&quot;log&quot;</span>
+	<span class="token string">&quot;os&quot;</span>
+	<span class="token string">&quot;strings&quot;</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	r <span class="token operator">:=</span> strings<span class="token punctuation">.</span><span class="token function">NewReader</span><span class="token punctuation">(</span><span class="token string">&quot;some io.Reader stream to be read\n&quot;</span><span class="token punctuation">)</span>
+
+	<span class="token keyword">if</span> <span class="token boolean">_</span><span class="token punctuation">,</span> err <span class="token operator">:=</span> io<span class="token punctuation">.</span><span class="token function">Copy</span><span class="token punctuation">(</span>os<span class="token punctuation">.</span>Stdout<span class="token punctuation">,</span> r<span class="token punctuation">)</span><span class="token punctuation">;</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+		<span class="token comment">// os.Stdout将内容输出到控制台</span>
+		log<span class="token punctuation">.</span><span class="token function">Fatal</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+		<span class="token comment">// log.Fatal函数完成：</span>
+		<span class="token comment">// 1. 打印输出err</span>
+		<span class="token comment">// 2. 退出应用程序</span>
+	<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="_8-2-copybuffer"><a href="#_8-2-copybuffer" class="header-anchor">#</a> 8.2 CopyBuffer</h3> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">func</span> <span class="token function">CopyBuffer</span><span class="token punctuation">(</span>dst Writer<span class="token punctuation">,</span> src Reader<span class="token punctuation">,</span> buf <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">byte</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>written <span class="token builtin">int64</span><span class="token punctuation">,</span> err <span class="token builtin">error</span><span class="token punctuation">)</span>
+</code></pre></div><p>CopyBuffer与Copy相同，区别在于CopyBuffer逐步遍历提供的缓冲区（如果需要），而不是分配临时缓冲区。如果buf为nil，则分配一个；如果长度为零，则CopyBuffer会panic报错。 如果src实现WriterTo或dst实现ReaderFrom，则buf将不用于执行复制。</p> <p>官方示例：</p> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token punctuation">(</span>
+	<span class="token string">&quot;io&quot;</span>
+	<span class="token string">&quot;log&quot;</span>
+	<span class="token string">&quot;os&quot;</span>
+	<span class="token string">&quot;strings&quot;</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	r1 <span class="token operator">:=</span> strings<span class="token punctuation">.</span><span class="token function">NewReader</span><span class="token punctuation">(</span><span class="token string">&quot;first reader\n&quot;</span><span class="token punctuation">)</span>
+	r2 <span class="token operator">:=</span> strings<span class="token punctuation">.</span><span class="token function">NewReader</span><span class="token punctuation">(</span><span class="token string">&quot;second reader\n&quot;</span><span class="token punctuation">)</span>
+	buf <span class="token operator">:=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">byte</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">)</span>
+
+	<span class="token comment">// buf is used here...</span>
+	<span class="token keyword">if</span> <span class="token boolean">_</span><span class="token punctuation">,</span> err <span class="token operator">:=</span> io<span class="token punctuation">.</span><span class="token function">CopyBuffer</span><span class="token punctuation">(</span>os<span class="token punctuation">.</span>Stdout<span class="token punctuation">,</span> r1<span class="token punctuation">,</span> buf<span class="token punctuation">)</span><span class="token punctuation">;</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+		log<span class="token punctuation">.</span><span class="token function">Fatal</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token comment">// ... reused here also. No need to allocate an extra buffer.</span>
+	<span class="token keyword">if</span> <span class="token boolean">_</span><span class="token punctuation">,</span> err <span class="token operator">:=</span> io<span class="token punctuation">.</span><span class="token function">CopyBuffer</span><span class="token punctuation">(</span>os<span class="token punctuation">.</span>Stdout<span class="token punctuation">,</span> r2<span class="token punctuation">,</span> buf<span class="token punctuation">)</span><span class="token punctuation">;</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+		log<span class="token punctuation">.</span><span class="token function">Fatal</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="_8-3-copyn"><a href="#_8-3-copyn" class="header-anchor">#</a> 8.3 CopyN</h3> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">func</span> <span class="token function">CopyN</span><span class="token punctuation">(</span>dst Writer<span class="token punctuation">,</span> src Reader<span class="token punctuation">,</span> n <span class="token builtin">int64</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>written <span class="token builtin">int64</span><span class="token punctuation">,</span> err <span class="token builtin">error</span><span class="token punctuation">)</span>
+</code></pre></div><p>CopyN将n个字节（或直到出错）从src复制到dst。它返回复制的字节数以及复制时遇到的最早错误。返回时，只有err == nil时，writte == n。 如果dst实现了ReaderFrom接口，则使用该接口实现副本。</p> <p>官方示例：</p> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token punctuation">(</span>
+	<span class="token string">&quot;io&quot;</span>
+	<span class="token string">&quot;log&quot;</span>
+	<span class="token string">&quot;os&quot;</span>
+	<span class="token string">&quot;strings&quot;</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	r <span class="token operator">:=</span> strings<span class="token punctuation">.</span><span class="token function">NewReader</span><span class="token punctuation">(</span><span class="token string">&quot;some io.Reader stream to be read&quot;</span><span class="token punctuation">)</span>
+
+	<span class="token keyword">if</span> <span class="token boolean">_</span><span class="token punctuation">,</span> err <span class="token operator">:=</span> io<span class="token punctuation">.</span><span class="token function">CopyN</span><span class="token punctuation">(</span>os<span class="token punctuation">.</span>Stdout<span class="token punctuation">,</span> r<span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+		log<span class="token punctuation">.</span><span class="token function">Fatal</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre></div><p>运行结果：</p> <div class="language- extra-class"><pre class="language-text"><code>some
+</code></pre></div><h3 id="_8-4-limitreader"><a href="#_8-4-limitreader" class="header-anchor">#</a> 8.4 LimitReader</h3> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">func</span> <span class="token function">LimitReader</span><span class="token punctuation">(</span>r Reader<span class="token punctuation">,</span> n <span class="token builtin">int64</span><span class="token punctuation">)</span> Reader
+</code></pre></div><p>LimitedReader从r读取，但将返回的数据量限制为n个字节。每次读取更新n以标记剩余可以读取的字节数。Read在n&lt;=0时或基础r返回EOF时返回EOF。</p> <p>官方示例：</p> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token punctuation">(</span>
+	<span class="token string">&quot;io&quot;</span>
+	<span class="token string">&quot;log&quot;</span>
+	<span class="token string">&quot;os&quot;</span>
+	<span class="token string">&quot;strings&quot;</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	r <span class="token operator">:=</span> strings<span class="token punctuation">.</span><span class="token function">NewReader</span><span class="token punctuation">(</span><span class="token string">&quot;some io.Reader stream to be read\n&quot;</span><span class="token punctuation">)</span>
+	lr <span class="token operator">:=</span> io<span class="token punctuation">.</span><span class="token function">LimitReader</span><span class="token punctuation">(</span>r<span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span>
+
+	<span class="token keyword">if</span> <span class="token boolean">_</span><span class="token punctuation">,</span> err <span class="token operator">:=</span> io<span class="token punctuation">.</span><span class="token function">Copy</span><span class="token punctuation">(</span>os<span class="token punctuation">.</span>Stdout<span class="token punctuation">,</span> lr<span class="token punctuation">)</span><span class="token punctuation">;</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+		log<span class="token punctuation">.</span><span class="token function">Fatal</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre></div><p>运行结果：</p> <div class="language- extra-class"><pre class="language-text"><code>some
+</code></pre></div><h3 id="_8-5-multireader"><a href="#_8-5-multireader" class="header-anchor">#</a> 8.5 MultiReader</h3> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">func</span> <span class="token function">MultiReader</span><span class="token punctuation">(</span>readers <span class="token operator">...</span>Reader<span class="token punctuation">)</span> Reader
+</code></pre></div><p>MultiReader返回一个Reader，它是所提供的输入阅读器的逻辑串联。它们被顺序读取。一旦所有输入均返回EOF，读取将返回EOF。如果任何读取器返回非零，非EOF错误，则Read将返回该错误。</p> <p>官方示例：</p> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token punctuation">(</span>
+	<span class="token string">&quot;io&quot;</span>
+	<span class="token string">&quot;log&quot;</span>
+	<span class="token string">&quot;os&quot;</span>
+	<span class="token string">&quot;strings&quot;</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	r1 <span class="token operator">:=</span> strings<span class="token punctuation">.</span><span class="token function">NewReader</span><span class="token punctuation">(</span><span class="token string">&quot;first reader &quot;</span><span class="token punctuation">)</span>
+	r2 <span class="token operator">:=</span> strings<span class="token punctuation">.</span><span class="token function">NewReader</span><span class="token punctuation">(</span><span class="token string">&quot;second reader &quot;</span><span class="token punctuation">)</span>
+	r3 <span class="token operator">:=</span> strings<span class="token punctuation">.</span><span class="token function">NewReader</span><span class="token punctuation">(</span><span class="token string">&quot;third reader\n&quot;</span><span class="token punctuation">)</span>
+	r <span class="token operator">:=</span> io<span class="token punctuation">.</span><span class="token function">MultiReader</span><span class="token punctuation">(</span>r1<span class="token punctuation">,</span> r2<span class="token punctuation">,</span> r3<span class="token punctuation">)</span>
+
+	<span class="token keyword">if</span> <span class="token boolean">_</span><span class="token punctuation">,</span> err <span class="token operator">:=</span> io<span class="token punctuation">.</span><span class="token function">Copy</span><span class="token punctuation">(</span>os<span class="token punctuation">.</span>Stdout<span class="token punctuation">,</span> r<span class="token punctuation">)</span><span class="token punctuation">;</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+		log<span class="token punctuation">.</span><span class="token function">Fatal</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre></div><p>运行结果：</p> <div class="language- extra-class"><pre class="language-text"><code>first reader second reader third reader
+</code></pre></div><h3 id="_8-6-multiwriter"><a href="#_8-6-multiwriter" class="header-anchor">#</a> 8.6 MultiWriter</h3> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">func</span> <span class="token function">MultiWriter</span><span class="token punctuation">(</span>writers <span class="token operator">...</span>Writer<span class="token punctuation">)</span> Writer
+</code></pre></div><p>MultiWriter创建一个Writers，将其写入复制到所有提供的写入器中，类似于Unix tee（1）命令。 每个写入一次写入每个列出的写入器。如果列出的写程序返回错误，则整个写操作将停止并返回错误；它不会在列表中继续下去。</p> <p>官方示例：</p> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token punctuation">(</span>
+	<span class="token string">&quot;bytes&quot;</span>
+	<span class="token string">&quot;fmt&quot;</span>
+	<span class="token string">&quot;io&quot;</span>
+	<span class="token string">&quot;log&quot;</span>
+	<span class="token string">&quot;strings&quot;</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	r <span class="token operator">:=</span> strings<span class="token punctuation">.</span><span class="token function">NewReader</span><span class="token punctuation">(</span><span class="token string">&quot;some io.Reader stream to be read\n&quot;</span><span class="token punctuation">)</span>
+
+	<span class="token keyword">var</span> buf1<span class="token punctuation">,</span> buf2 bytes<span class="token punctuation">.</span>Buffer
+	w <span class="token operator">:=</span> io<span class="token punctuation">.</span><span class="token function">MultiWriter</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>buf1<span class="token punctuation">,</span> <span class="token operator">&amp;</span>buf2<span class="token punctuation">)</span>
+
+	<span class="token keyword">if</span> <span class="token boolean">_</span><span class="token punctuation">,</span> err <span class="token operator">:=</span> io<span class="token punctuation">.</span><span class="token function">Copy</span><span class="token punctuation">(</span>w<span class="token punctuation">,</span> r<span class="token punctuation">)</span><span class="token punctuation">;</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+		log<span class="token punctuation">.</span><span class="token function">Fatal</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+
+	fmt<span class="token punctuation">.</span><span class="token function">Print</span><span class="token punctuation">(</span>buf1<span class="token punctuation">.</span><span class="token function">String</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+	fmt<span class="token punctuation">.</span><span class="token function">Print</span><span class="token punctuation">(</span>buf2<span class="token punctuation">.</span><span class="token function">String</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="_8-7-pipe"><a href="#_8-7-pipe" class="header-anchor">#</a> 8.7 Pipe</h3> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">func</span> <span class="token function">Pipe</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token operator">*</span>PipeReader<span class="token punctuation">,</span> <span class="token operator">*</span>PipeWriter<span class="token punctuation">)</span>
+</code></pre></div><p>Pipe创建一个同步的内存管道。
+可用于连接期望io.Reader的代码和期望io.Writer的代码。</p> <p>管道上的读和写是一对一匹配的，除非需要多次读取才能使用单次写入。也就是说，每次对PipeWriter的写入都将阻塞，直到它满足从PipeReader读取的一个或多个读取，这些读取会完全消耗已写入的数据。</p> <p>数据直接从Write复制到相应的Read (或Reads)；没有内部缓冲。
+对读的并行调用和对写的并行调用也是安全的：单个调用将按顺序执行。</p> <p>官方示例：</p> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token punctuation">(</span>
+	<span class="token string">&quot;fmt&quot;</span>
+	<span class="token string">&quot;io&quot;</span>
+	<span class="token string">&quot;log&quot;</span>
+	<span class="token string">&quot;os&quot;</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	r<span class="token punctuation">,</span> w <span class="token operator">:=</span> io<span class="token punctuation">.</span><span class="token function">Pipe</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+	<span class="token keyword">go</span> <span class="token keyword">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		fmt<span class="token punctuation">.</span><span class="token function">Fprint</span><span class="token punctuation">(</span>w<span class="token punctuation">,</span> <span class="token string">&quot;some io.Reader stream to be read\n&quot;</span><span class="token punctuation">)</span>
+		w<span class="token punctuation">.</span><span class="token function">Close</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+	<span class="token keyword">if</span> <span class="token boolean">_</span><span class="token punctuation">,</span> err <span class="token operator">:=</span> io<span class="token punctuation">.</span><span class="token function">Copy</span><span class="token punctuation">(</span>os<span class="token punctuation">.</span>Stdout<span class="token punctuation">,</span> r<span class="token punctuation">)</span><span class="token punctuation">;</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+		log<span class="token punctuation">.</span><span class="token function">Fatal</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre></div><p>运行结果</p> <div class="language- extra-class"><pre class="language-text"><code>some io.Reader stream to be read
+</code></pre></div><h3 id="_8-8-readall"><a href="#_8-8-readall" class="header-anchor">#</a> 8.8 ReadAll</h3> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">func</span> <span class="token function">ReadAll</span><span class="token punctuation">(</span>r Reader<span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">byte</span><span class="token punctuation">,</span> <span class="token builtin">error</span><span class="token punctuation">)</span>
+</code></pre></div><p>ReadAll从r读取，直到出现错误或EOF，并返回其读取的数据。成功的调用返回errnil，而不是errEOF。由于ReadAll定义为从src读取直到EOF，因此它不会将读取的EOF视为要报告的错误。</p> <p>官方示例：</p> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token punctuation">(</span>
+	<span class="token string">&quot;fmt&quot;</span>
+	<span class="token string">&quot;io&quot;</span>
+	<span class="token string">&quot;log&quot;</span>
+	<span class="token string">&quot;strings&quot;</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	r <span class="token operator">:=</span> strings<span class="token punctuation">.</span><span class="token function">NewReader</span><span class="token punctuation">(</span><span class="token string">&quot;Go is a general-purpose language designed with systems programming in mind.&quot;</span><span class="token punctuation">)</span>
+
+	b<span class="token punctuation">,</span> err <span class="token operator">:=</span> io<span class="token punctuation">.</span><span class="token function">ReadAll</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span>
+	<span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+		log<span class="token punctuation">.</span><span class="token function">Fatal</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+
+	fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">&quot;%s&quot;</span><span class="token punctuation">,</span> b<span class="token punctuation">)</span>
+
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="_8-9-readatleast"><a href="#_8-9-readatleast" class="header-anchor">#</a> 8.9 ReadAtLeast</h3> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">func</span> <span class="token function">ReadAtLeast</span><span class="token punctuation">(</span>r Reader<span class="token punctuation">,</span> buf <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">byte</span><span class="token punctuation">,</span> min <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>n <span class="token builtin">int</span><span class="token punctuation">,</span> err <span class="token builtin">error</span><span class="token punctuation">)</span>
+</code></pre></div><p>ReadAtLeast从r读取到buf，直到它至少读取了min字节。它返回复制的字节数n，如果读取的字节数少则返回错误。仅当未读取任何字节时，错误才是EOF。如果在读取少于最小字节后发生EOF，则ReadAtLeast返回ErrUnexpectedEOF。如果min大于buf的长度，则ReadAtLeast返回ErrShortBuffer。返回时，当且仅当err == nil时，n&gt; = min。</p> <p>官方示例：</p> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">import</span> <span class="token punctuation">(</span>
+	<span class="token string">&quot;fmt&quot;</span>
+	<span class="token string">&quot;io&quot;</span>
+	<span class="token string">&quot;log&quot;</span>
+	<span class="token string">&quot;strings&quot;</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	r <span class="token operator">:=</span> strings<span class="token punctuation">.</span><span class="token function">NewReader</span><span class="token punctuation">(</span><span class="token string">&quot;some io.Reader stream to be read\n&quot;</span><span class="token punctuation">)</span>
+
+	buf <span class="token operator">:=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">byte</span><span class="token punctuation">,</span> <span class="token number">14</span><span class="token punctuation">)</span>
+	<span class="token keyword">if</span> <span class="token boolean">_</span><span class="token punctuation">,</span> err <span class="token operator">:=</span> io<span class="token punctuation">.</span><span class="token function">ReadAtLeast</span><span class="token punctuation">(</span>r<span class="token punctuation">,</span> buf<span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+		log<span class="token punctuation">.</span><span class="token function">Fatal</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+	fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">&quot;%s\n&quot;</span><span class="token punctuation">,</span> buf<span class="token punctuation">)</span>
+
+	<span class="token comment">// buffer smaller than minimal read size.</span>
+	shortBuf <span class="token operator">:=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">byte</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span>
+	<span class="token keyword">if</span> <span class="token boolean">_</span><span class="token punctuation">,</span> err <span class="token operator">:=</span> io<span class="token punctuation">.</span><span class="token function">ReadAtLeast</span><span class="token punctuation">(</span>r<span class="token punctuation">,</span> shortBuf<span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+		fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">&quot;error:&quot;</span><span class="token punctuation">,</span> err<span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token comment">// minimal read size bigger than io.Reader stream</span>
+	longBuf <span class="token operator">:=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">byte</span><span class="token punctuation">,</span> <span class="token number">64</span><span class="token punctuation">)</span>
+	<span class="token keyword">if</span> <span class="token boolean">_</span><span class="token punctuation">,</span> err <span class="token operator">:=</span> io<span class="token punctuation">.</span><span class="token function">ReadAtLeast</span><span class="token punctuation">(</span>r<span class="token punctuation">,</span> longBuf<span class="token punctuation">,</span> <span class="token number">64</span><span class="token punctuation">)</span><span class="token punctuation">;</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+		fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">&quot;error:&quot;</span><span class="token punctuation">,</span> err<span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="_8-10-readfull"><a href="#_8-10-readfull" class="header-anchor">#</a> 8.10 ReadFull</h3> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">func</span> <span class="token function">ReadFull</span><span class="token punctuation">(</span>r Reader<span class="token punctuation">,</span> buf <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">byte</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>n <span class="token builtin">int</span><span class="token punctuation">,</span> err <span class="token builtin">error</span><span class="token punctuation">)</span>
+</code></pre></div><p>ReadFull将r中的len（buf）个字节准确地读取到buf中。它返回复制的字节数，如果读取的字节数少则返回错误。仅当未读取任何字节时，错误才是EOF。如果在读取了一些但不是全部字节后发生EOF，则ReadFull返回ErrUnexpectedEOF。返回时，当且仅当err == nil时，n == len（buf）。</p> <p>官方示例：</p> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token punctuation">(</span>
+	<span class="token string">&quot;fmt&quot;</span>
+	<span class="token string">&quot;io&quot;</span>
+	<span class="token string">&quot;log&quot;</span>
+	<span class="token string">&quot;strings&quot;</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	r <span class="token operator">:=</span> strings<span class="token punctuation">.</span><span class="token function">NewReader</span><span class="token punctuation">(</span><span class="token string">&quot;some io.Reader stream to be read\n&quot;</span><span class="token punctuation">)</span>
+
+	buf <span class="token operator">:=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">byte</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span>
+	<span class="token keyword">if</span> <span class="token boolean">_</span><span class="token punctuation">,</span> err <span class="token operator">:=</span> io<span class="token punctuation">.</span><span class="token function">ReadFull</span><span class="token punctuation">(</span>r<span class="token punctuation">,</span> buf<span class="token punctuation">)</span><span class="token punctuation">;</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+		log<span class="token punctuation">.</span><span class="token function">Fatal</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+	fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">&quot;%s\n&quot;</span><span class="token punctuation">,</span> buf<span class="token punctuation">)</span>
+
+	<span class="token comment">// minimal read size bigger than io.Reader stream</span>
+	longBuf <span class="token operator">:=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">byte</span><span class="token punctuation">,</span> <span class="token number">64</span><span class="token punctuation">)</span>
+	<span class="token keyword">if</span> <span class="token boolean">_</span><span class="token punctuation">,</span> err <span class="token operator">:=</span> io<span class="token punctuation">.</span><span class="token function">ReadFull</span><span class="token punctuation">(</span>r<span class="token punctuation">,</span> longBuf<span class="token punctuation">)</span><span class="token punctuation">;</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+		fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">&quot;error:&quot;</span><span class="token punctuation">,</span> err<span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="_8-11-sectionreader"><a href="#_8-11-sectionreader" class="header-anchor">#</a> 8.11 SectionReader</h3> <p>SectionReader在ReaderAt的基础上实现了Read，Seek和ReadAt。</p> <p>具体实现方法有：</p> <ol><li><code>func NewSectionReader(r ReaderAt, off int64, n int64) *SectionReader</code>
+结构体SectionReader的创建方法
+NewSectionReader返回一个SectionReader，它从r开始读取，偏移量为off，并在n个字节后以EOF停止。</li> <li><code>func (s *SectionReader) Read(p []byte) (n int, err error)</code>
+实现了接口Reader的Read方法</li> <li><code>func (s *SectionReader) ReadAt(p []byte, off int64) (n int, err error)</code>
+实现了接口ReaderAt的ReadAt方法</li> <li><code>func (s *SectionReader) Seek(offset int64, whence int) (int64, error)</code>
+实现了接口Seeker的Seek方法</li> <li><code>func (s *SectionReader) Size() int64</code>
+Size返回以字节为单位的片段大小。</li></ol> <h4 id="_8-11-1-newsectionreader"><a href="#_8-11-1-newsectionreader" class="header-anchor">#</a> 8.11.1 NewSectionReader</h4> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">func</span> <span class="token function">NewSectionReader</span><span class="token punctuation">(</span>r ReaderAt<span class="token punctuation">,</span> off <span class="token builtin">int64</span><span class="token punctuation">,</span> n <span class="token builtin">int64</span><span class="token punctuation">)</span> <span class="token operator">*</span>SectionReader
+</code></pre></div><p>NewSectionReader返回一个SectionReader，它从r开始读取偏移量off，并在n个字节后以EOF停止。</p> <p>官方示例：</p> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token punctuation">(</span>
+	<span class="token string">&quot;io&quot;</span>
+	<span class="token string">&quot;log&quot;</span>
+	<span class="token string">&quot;os&quot;</span>
+	<span class="token string">&quot;strings&quot;</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	r <span class="token operator">:=</span> strings<span class="token punctuation">.</span><span class="token function">NewReader</span><span class="token punctuation">(</span><span class="token string">&quot;some io.Reader stream to be read\n&quot;</span><span class="token punctuation">)</span>
+	s <span class="token operator">:=</span> io<span class="token punctuation">.</span><span class="token function">NewSectionReader</span><span class="token punctuation">(</span>r<span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">17</span><span class="token punctuation">)</span>
+
+	<span class="token keyword">if</span> <span class="token boolean">_</span><span class="token punctuation">,</span> err <span class="token operator">:=</span> io<span class="token punctuation">.</span><span class="token function">Copy</span><span class="token punctuation">(</span>os<span class="token punctuation">.</span>Stdout<span class="token punctuation">,</span> s<span class="token punctuation">)</span><span class="token punctuation">;</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+		log<span class="token punctuation">.</span><span class="token function">Fatal</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="_8-11-2-sectionreader-read"><a href="#_8-11-2-sectionreader-read" class="header-anchor">#</a> 8.11.2 SectionReader.Read</h4> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">func</span> <span class="token punctuation">(</span>s <span class="token operator">*</span>SectionReader<span class="token punctuation">)</span> <span class="token function">Read</span><span class="token punctuation">(</span>p <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">byte</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>n <span class="token builtin">int</span><span class="token punctuation">,</span> err <span class="token builtin">error</span><span class="token punctuation">)</span>
+</code></pre></div><p>实现了接口Reader的Read方法</p> <p>官方示例：</p> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">import</span> <span class="token punctuation">(</span>
+	<span class="token string">&quot;fmt&quot;</span>
+	<span class="token string">&quot;io&quot;</span>
+	<span class="token string">&quot;log&quot;</span>
+	<span class="token string">&quot;strings&quot;</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	r <span class="token operator">:=</span> strings<span class="token punctuation">.</span><span class="token function">NewReader</span><span class="token punctuation">(</span><span class="token string">&quot;some io.Reader stream to be read\n&quot;</span><span class="token punctuation">)</span>
+	s <span class="token operator">:=</span> io<span class="token punctuation">.</span><span class="token function">NewSectionReader</span><span class="token punctuation">(</span>r<span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">17</span><span class="token punctuation">)</span>
+
+	buf <span class="token operator">:=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">byte</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">)</span>
+	<span class="token keyword">if</span> <span class="token boolean">_</span><span class="token punctuation">,</span> err <span class="token operator">:=</span> s<span class="token punctuation">.</span><span class="token function">Read</span><span class="token punctuation">(</span>buf<span class="token punctuation">)</span><span class="token punctuation">;</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+		log<span class="token punctuation">.</span><span class="token function">Fatal</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+
+	fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">&quot;%s\n&quot;</span><span class="token punctuation">,</span> buf<span class="token punctuation">)</span>
+
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="_8-11-3-sectionreader-readat"><a href="#_8-11-3-sectionreader-readat" class="header-anchor">#</a> 8.11.3 SectionReader.ReadAt</h4> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">func</span> <span class="token punctuation">(</span>s <span class="token operator">*</span>SectionReader<span class="token punctuation">)</span> <span class="token function">ReadAt</span><span class="token punctuation">(</span>p <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">byte</span><span class="token punctuation">,</span> off <span class="token builtin">int64</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>n <span class="token builtin">int</span><span class="token punctuation">,</span> err <span class="token builtin">error</span><span class="token punctuation">)</span>
+</code></pre></div><p>实现了接口ReaderAt的ReadAt方法</p> <p>官方示例：</p> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token punctuation">(</span>
+	<span class="token string">&quot;fmt&quot;</span>
+	<span class="token string">&quot;io&quot;</span>
+	<span class="token string">&quot;log&quot;</span>
+	<span class="token string">&quot;strings&quot;</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	r <span class="token operator">:=</span> strings<span class="token punctuation">.</span><span class="token function">NewReader</span><span class="token punctuation">(</span><span class="token string">&quot;some io.Reader stream to be read\n&quot;</span><span class="token punctuation">)</span>
+	s <span class="token operator">:=</span> io<span class="token punctuation">.</span><span class="token function">NewSectionReader</span><span class="token punctuation">(</span>r<span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">17</span><span class="token punctuation">)</span>
+
+	buf <span class="token operator">:=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">byte</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">)</span>
+	<span class="token keyword">if</span> <span class="token boolean">_</span><span class="token punctuation">,</span> err <span class="token operator">:=</span> s<span class="token punctuation">.</span><span class="token function">ReadAt</span><span class="token punctuation">(</span>buf<span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+		log<span class="token punctuation">.</span><span class="token function">Fatal</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+
+	fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">&quot;%s\n&quot;</span><span class="token punctuation">,</span> buf<span class="token punctuation">)</span>
+
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="_8-11-4-sectionreader-seek"><a href="#_8-11-4-sectionreader-seek" class="header-anchor">#</a> 8.11.4 SectionReader.Seek</h4> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">func</span> <span class="token punctuation">(</span>s <span class="token operator">*</span>SectionReader<span class="token punctuation">)</span> <span class="token function">Seek</span><span class="token punctuation">(</span>offset <span class="token builtin">int64</span><span class="token punctuation">,</span> whence <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token builtin">int64</span><span class="token punctuation">,</span> <span class="token builtin">error</span><span class="token punctuation">)</span>
+</code></pre></div><p>实现了接口Seeker的Seek方法</p> <p>官方示例：</p> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token punctuation">(</span>
+	<span class="token string">&quot;io&quot;</span>
+	<span class="token string">&quot;log&quot;</span>
+	<span class="token string">&quot;os&quot;</span>
+	<span class="token string">&quot;strings&quot;</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	r <span class="token operator">:=</span> strings<span class="token punctuation">.</span><span class="token function">NewReader</span><span class="token punctuation">(</span><span class="token string">&quot;some io.Reader stream to be read\n&quot;</span><span class="token punctuation">)</span>
+	s <span class="token operator">:=</span> io<span class="token punctuation">.</span><span class="token function">NewSectionReader</span><span class="token punctuation">(</span>r<span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">17</span><span class="token punctuation">)</span>
+
+	<span class="token keyword">if</span> <span class="token boolean">_</span><span class="token punctuation">,</span> err <span class="token operator">:=</span> s<span class="token punctuation">.</span><span class="token function">Seek</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> io<span class="token punctuation">.</span>SeekStart<span class="token punctuation">)</span><span class="token punctuation">;</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+		log<span class="token punctuation">.</span><span class="token function">Fatal</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token keyword">if</span> <span class="token boolean">_</span><span class="token punctuation">,</span> err <span class="token operator">:=</span> io<span class="token punctuation">.</span><span class="token function">Copy</span><span class="token punctuation">(</span>os<span class="token punctuation">.</span>Stdout<span class="token punctuation">,</span> s<span class="token punctuation">)</span><span class="token punctuation">;</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+		log<span class="token punctuation">.</span><span class="token function">Fatal</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre></div><blockquote><p>可以看的出来SectionReader是根据ReaderAt实现的，而非Seeker，虽然两者的效果很像，但是ReaderAt读取内容是无视Seeker偏移量的。且在读取数据大小上ReadAt是要比Read严格的，同样的Bytes在Read上即使设大了也会没事，但在ReadAt会报错。</p></blockquote> <h4 id="_8-11-5-sectionreader-size"><a href="#_8-11-5-sectionreader-size" class="header-anchor">#</a> 8.11.5 SectionReader.Size</h4> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">func</span> <span class="token punctuation">(</span>s <span class="token operator">*</span>SectionReader<span class="token punctuation">)</span> <span class="token function">Size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token builtin">int64</span>
+</code></pre></div><p>Size返回以字节为单位的片段大小。</p> <p>官方示例：</p> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token punctuation">(</span>
+	<span class="token string">&quot;fmt&quot;</span>
+	<span class="token string">&quot;io&quot;</span>
+	<span class="token string">&quot;strings&quot;</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	r <span class="token operator">:=</span> strings<span class="token punctuation">.</span><span class="token function">NewReader</span><span class="token punctuation">(</span><span class="token string">&quot;some io.Reader stream to be read\n&quot;</span><span class="token punctuation">)</span>
+	s <span class="token operator">:=</span> io<span class="token punctuation">.</span><span class="token function">NewSectionReader</span><span class="token punctuation">(</span>r<span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">17</span><span class="token punctuation">)</span>
+
+	fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">Size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="_8-12-teereader"><a href="#_8-12-teereader" class="header-anchor">#</a> 8.12 TeeReader</h3> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">func</span> <span class="token function">TeeReader</span><span class="token punctuation">(</span>r Reader<span class="token punctuation">,</span> w Writer<span class="token punctuation">)</span> Reader
+</code></pre></div><p>TeeReader返回一个Reader，该Reader向w写入从r读取的内容。通过r执行的所有r读取均与对w的相应写入匹配。没有内部缓冲-写入必须在读取完成之前完成。写入时遇到的任何错误均报告为读取错误。</p> <p>官方示例：</p> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token punctuation">(</span>
+	<span class="token string">&quot;io&quot;</span>
+	<span class="token string">&quot;log&quot;</span>
+	<span class="token string">&quot;os&quot;</span>
+	<span class="token string">&quot;strings&quot;</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">var</span> r io<span class="token punctuation">.</span>Reader <span class="token operator">=</span> strings<span class="token punctuation">.</span><span class="token function">NewReader</span><span class="token punctuation">(</span><span class="token string">&quot;some io.Reader stream to be read\n&quot;</span><span class="token punctuation">)</span>
+
+	r <span class="token operator">=</span> io<span class="token punctuation">.</span><span class="token function">TeeReader</span><span class="token punctuation">(</span>r<span class="token punctuation">,</span> os<span class="token punctuation">.</span>Stdout<span class="token punctuation">)</span>
+
+	<span class="token comment">// Everything read from r will be copied to stdout.</span>
+	<span class="token keyword">if</span> <span class="token boolean">_</span><span class="token punctuation">,</span> err <span class="token operator">:=</span> io<span class="token punctuation">.</span><span class="token function">ReadAll</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span><span class="token punctuation">;</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+		log<span class="token punctuation">.</span><span class="token function">Fatal</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="_8-13-writestring"><a href="#_8-13-writestring" class="header-anchor">#</a> 8.13 WriteString</h3> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">func</span> <span class="token function">WriteString</span><span class="token punctuation">(</span>w Writer<span class="token punctuation">,</span> s <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>n <span class="token builtin">int</span><span class="token punctuation">,</span> err <span class="token builtin">error</span><span class="token punctuation">)</span>
+</code></pre></div><p>WriteString将字符串s的内容写入w，w接受字节片。如果w实现StringWriter，则直接调用其WriteString方法。否则，w.Write只调用一次。</p> <p>官方示例：</p> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token punctuation">(</span>
+	<span class="token string">&quot;io&quot;</span>
+	<span class="token string">&quot;log&quot;</span>
+	<span class="token string">&quot;os&quot;</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">if</span> <span class="token boolean">_</span><span class="token punctuation">,</span> err <span class="token operator">:=</span> io<span class="token punctuation">.</span><span class="token function">WriteString</span><span class="token punctuation">(</span>os<span class="token punctuation">.</span>Stdout<span class="token punctuation">,</span> <span class="token string">&quot;Hello World&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+		log<span class="token punctuation">.</span><span class="token function">Fatal</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blog/go-study/basic-lib/06-bytes标准库/06.html" class="prev">
+        bytes标准库
+      </a></span> <span class="next"><a href="/blog/go-study/basic-lib/08-ioutil标准库/08.html">
+        ioutil标准库
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.17aef99c.js" defer></script><script src="/blog/assets/js/2.cb836bf6.js" defer></script><script src="/blog/assets/js/1.085f3e10.js" defer></script><script src="/blog/assets/js/57.1eb1c67e.js" defer></script>
+  </body>
+</html>
